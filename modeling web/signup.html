@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | Prestige Face Nigeria</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --gold: #ffda79;
+      --dark-blue: #1e1e2f;
+      --darker-blue: #0f0f1a;
+      --glass: rgba(255, 255, 255, 0.05);
+      --glass-border: rgba(255, 255, 255, 0.1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+    body {
+      background: radial-gradient(circle at center, var(--dark-blue) 0%, var(--darker-blue) 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    /* Centered Single Container */
+    .auth-container {
+      width: 100%;
+      max-width: 450px; /* Narrower width for a single form */
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+    }
+
+    .signup-card h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--gold);
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .subtitle {
+      color: rgba(255, 255, 255, 0.5);
+      margin-bottom: 35px;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    .input-group { position: relative; margin-bottom: 20px; }
+
+    .input-group i {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    input {
+      width: 100%;
+      padding: 16px 16px 16px 52px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--glass-border);
+      border-radius: 12px;
+      color: #fff;
+    }
+
+    input:focus { outline: none; border-color: var(--gold); background: rgba(255, 255, 255, 0.1); }
+
+    .btn-signup {
+      width: 100%;
+      padding: 16px;
+      background: var(--gold);
+      color: var(--darker-blue);
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .login-link { margin-top: 20px; text-align: center; font-size: 0.9rem; color: rgba(255, 255, 255, 0.6); }
+    .login-link a { color: var(--gold); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <main class="auth-container">
+    <div class="signup-card">
+      <h1>Create Account</h1>
+      <p class="subtitle">Join the elite community of models</p>
+
+      <form id="signupForm">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" id="signup-name" placeholder="Full Name" required>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="signup-email" placeholder="Email Address" required>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="signup-password" placeholder="Create Password" required>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-shield-alt"></i>
+          <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+        </div>
+        <button type="submit" class="btn-signup" id="submitBtn">Get Started</button>
+      </form>
+
+      <div class="login-link">
+        Already a member? <a href="login.html">Login</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = 'https://gykkocmrjfjocmwjwfst.supabase.co';
+    const SUPABASE_KEY = 'sb_publishable_WSvJdtO4jRhbXw4PZexD0w_gBEiCkFT'; // Ensure this is your anon/public key
+    const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+  
+    document.getElementById('signupForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById('signup-name').value;
+      const email = document.getElementById('signup-email').value;
+      const password = document.getElementById('signup-password').value;
+      const confirmPassword = document.getElementById('confirm-password').value;
+  
+      // 1. Basic Validation
+      if (password !== confirmPassword) {
+        alert("Passwords do not match!");
+        return;
+      }
+  
+      const submitBtn = document.getElementById('submitBtn');
+      submitBtn.innerText = "Creating Account...";
+      submitBtn.disabled = true;
+  
+      // 2. Supabase Auth Sign Up
+      const { data, error } = await supabaseClient.auth.signUp({
+        email: email,
+        password: password,
+        options: {
+          data: {
+            full_name: name, // Saves name to user metadata
+          }
+        }
+      });
+  
+      if (error) {
+        alert("Error: " + error.message);
+      } else {
+        // 3. Success Logic
+        if (data.user && data.user.identities && data.user.identities.length === 0) {
+            alert("This email is already registered.");
+        } else {
+            alert("Check your email for the confirmation link!");
+        }
+      }
+      
+      submitBtn.innerText = "Get Started";
+      submitBtn.disabled = false;
+    });
+  </script>
+  </script>
+</body>
+</html>

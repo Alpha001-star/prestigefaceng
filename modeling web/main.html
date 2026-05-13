@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestige Face | Modeling Competition</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="description" content="Vogue & Vision - The ultimate destination for modeling business insights and high-fashion editorials.">
+</head>
+<body>
+
+    <div id="successOverlay" class="success-overlay">
+        <div class="success-content">
+            <div class="success-icon">✓</div>
+            <h2>Application Received</h2>
+            <p>Our scouts will review your portfolio. Keep an eye on your inbox.</p>
+            <button onclick="closeSuccess()">Back to Site</button>
+        </div>
+    </div>
+
+    <nav class="navbar">
+        <div class="logo">PFN</div>
+        
+        <ul class="nav-links nav-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#magazine">Editorials</a></li>
+            <li><a href="#gallery">Our Faces</a></li>
+            <li><a href="#apply">Apply</a></li>
+        </ul>
+    
+        <div class="nav-actions">
+            <button class="cta-btn hide-mobile" onclick="document.getElementById('apply').scrollIntoView()">Join Roster</button>
+            
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>PRESTIGE FACE NIGERIA</h1>
+            <p>Showcasing Nigeria’s Finest Faces...</p>
+            <a href="#magazine" class="btn">Read Latest Issue</a>
+        </div>
+    </header>
+
+    <section id="magazine" class="container">
+        <h2 class="section-title">Latest Editorials</h2>
+        <div class="grid">
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1550246140-5119ae4790b8?q=80&w=1000&auto=format&fit=cropp" 
+       alt="Current Runway Trend" 
+       class="card-img">
+                <h3>Bold & Modern Streetwear</h3>
+                <p>Your style is your loudest statement.</p>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b" alt="Fashion Editorial" class="card-img">
+                <h3>Fashion & Lifestyle</h3>
+                <p>You can't outlook the shine.</p>
+            </div>
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1000&auto=format&fit=crop" alt="Studio Portrait" class="card-img">
+                <h3>Minimalism & Pose</h3>
+                <p>The art of the high-fashion editorial shoot.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="gallery" class="container">
+        <h2 class="section-title">Winners Image</h2>
+        <div class="model-grid">
+            
+            <div class="model-card" onclick="openPortfolio('Winner', '175cm', 'Nigeria', 'sasha-large.jpg')">
+                <div class="model-img" style="background-image: url('winner\'s\ image.png');"></div>
+                <div class="model-info"><span>King</span></div>
+            </div>
+    
+            <div class="model-card" onclick="openPortfolio('Winner', '188cm', 'Nigeria', 'jordan-large.jpg')">
+                <div class="model-img" style="background-image: url('winner\'s\ image.png');"></div>
+                <div class="model-info"><span>Queen</span></div>
+            </div>
+    
+            <div class="model-card" onclick="openPortfolio('Winner', '188cm', 'Nigeria', 'jordan-large.jpg')">
+                <div class="model-img" style="background-image: url('winner\'s\ image.png');"></div>
+                <div class="model-info"><span>Runner up</span></div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="apply" class="container gray-bg">
+        <div class="form-wrapper">
+            <h2 class="section-title">Model Application</h2>
+            <p class="form-subtitle">Fill out the details below to be considered for our roster.</p>
+
+            <div class="model-requirements">
+                <h3>Minimum Requirements</h3>
+                <ul class="req-list">
+                    <li><strong>Ages:</strong> 16 — 28 years old</li>
+                    <li><strong>Height:</strong> 173cm+ (Female) | 183cm+ (Male)</li>
+                    <li><strong>Location:</strong> Based in Nigeria</li>
+                    <li><strong>Photos:</strong> Clear digitals (no makeup, no filters)</li>
+                </ul>
+            </div>
+            
+            <form id="model-form">
+                <form action="https://formspree.io/f/mkooqeqb" method="POST" id="model-form">
+                    <div class="form-group-row">
+                        <input type="text" name="first_name" placeholder="First Name" required>
+                        <input type="text" name="last_name" placeholder="Last Name" required>
+                    </div>
+                
+                    <div class="form-group-row">
+                        <input type="email" name="email" placeholder="Email Address" required>
+                        <input type="tel" name="phone" placeholder="Phone Number" required>
+                    </div>
+                
+                    <div class="measurements-grid">
+                        <div class="m-item"><label>Height (cm)</label><input type="number" name="height" placeholder="175"></div>
+                        <div class="m-item"><label>Bust</label><input type="number" name="bust" placeholder="86"></div>
+                        <div class="m-item"><label>Waist</label><input type="number" name="waist" placeholder="60"></div>
+                        <div class="m-item"><label>Hips</label><input type="number" name="hips" placeholder="89"></div>
+                    </div>
+                
+                    <div class="form-group">
+                        <label>Portfolio Link (Google Drive or Dropbox)</label>
+                        <input type="url" name="portfolio_link" placeholder="https://..." class="form-group-row" style="width:100%; margin-top:10px; padding:12px;">
+                    </div>
+                
+                    <button type="submit" class="submit-btn">Send Application</button>
+                </form>
+        </div>
+    </section>
+
+    <div id="portfolioModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closePortfolio()">&times;</span>
+            <div class="modal-body">
+                <div id="modalImg" class="modal-img-large"></div>
+                <div class="modal-text">
+                    <h2 id="modalName">Model Name</h2>
+                    <p><strong>Height:</strong> <span id="modalHeight"></span></p>
+                    <p><strong>Location:</strong> <span id="modalLoc"></span></p>
+                    <hr>
+                    <p class="bio">Representing the next generation of editorial talent. Specialized in high-fashion and runway.</p>
+                    <button class="cta-btn">Book Model</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">PFN</div>
+            <p>© 2026 Prestige Face Nigeria. All Rights Reserved.</p>
+            <div class="social-links">
+                <a href="https://www.instagram.com/prestigefaceng?igsh=MWJmajRianQxbjFodw==" aria-label="Instagram">Instagram</a>
+                <a href="#" aria-label="Twitter">Twitter</a>
+                <a href="#" aria-label="Facebook">Facebook</a>
+            </div>
+
+            <div class="newsletter">
+    <form action="https://formspree.io/f/mkooqeqb" method="POST" class="newsletter-form">
+        <input type="email" name="subscriber_email" placeholder="Join our newsletter" required>
+        <button type="submit">Subscribe</button>
+    </form>
+</div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <!-- Terms and Conditions Modal -->
+<div id="termsModal" class="modal" style="display: none; align-items: center; justify-content: center;">
+    <div class="modal-content terms-container">
+        <div class="terms-scroll-box">
+            <h2>TERMS AND CONDITIONS</h2>
+            <p><strong>Prestige Face Nigeria (Online Competition)</strong></p>
+            <hr>
+            
+            <h3>1. Introduction</h3>
+            <p>By registering for the Prestige Face Nigeria, you agree to comply with and be bound by these Terms and Conditions. Please read them carefully before participating.</p>
+
+            <h3>2. Eligibility</h3>
+            <ul>
+                <li>Participants must be at least 16 - 28 years old.</li>
+                <li>Participants must provide accurate and complete registration details.</li>
+                <li>By entering, you confirm that all submitted content is your original work.</li>
+            </ul>
+
+            <h3>3. Competition Structure</h3>
+            <p>The competition will be conducted in multiple stages, including photo submissions, video challenges, public voting, and judges’ evaluation.</p>
+
+            <h3>4. Submission Guidelines</h3>
+            <p>All photos/videos must be clear. Edited or inappropriate content lead to disqualification.</p>
+
+            <h3>5. Voting Rules</h3>
+            <p>Any form of vote manipulation (bots/fake accounts) will result in immediate disqualification.</p>
+
+            <h3>6. Use of Content</h3>
+            <p>Participants grant Prestige Face Nigeria the right to use submitted content for promotional purposes without additional compensation.</p>
+
+            <h3>7. Disqualification</h3>
+            <p>False information or inappropriate behavior will result in removal from the competition.</p>
+
+            <hr>
+            <p><em>By clicking "I Agree", you acknowledge that you have read and understood these terms.</em></p>
+        </div> 
+        <div class="terms-footer">
+            <button class="submit-btn" onclick="acceptTerms()">I Agree & Enter Site</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
