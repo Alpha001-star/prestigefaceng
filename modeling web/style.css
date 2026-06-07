@@ -8,7 +8,7 @@
 
 .elite-card {
     background: linear-gradient(135deg, #111 0%, #050505 100%);
-    border: 1px solid #c5a059; /* Gold Border */
+    border: 1px solid #00A86B; /* Gold Border */
     border-radius: 20px;
     padding: 40px;
     max-width: 900px;
@@ -34,7 +34,7 @@
 /* THE UNIQUE BUTTON */
 .payment-trigger-btn {
     display: inline-block;
-    background: #c5a059;
+    background: #00A86B;
     color: #000;
     text-decoration: none;
     padding: 15px 35px;
@@ -68,7 +68,7 @@
 
 :root {
     --primary-black: #000000;
-    --accent-gold: #D4AF37;
+    --accent-gold: #00A86B;
     --soft-white: #F8F8F8;
     --dark-gray: #1A1A1A;
     --medium-gray: #333333;
@@ -107,7 +107,7 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: 2rem;
     font-weight: 700;
-    color: var(--primary-black);
+    color: #00A86B;
     letter-spacing: 2px;
 }
 
@@ -809,7 +809,7 @@ body {
     font-family: 'Playfair Display', serif;
     font-size: 1.8rem;
     margin-bottom: 10px;
-    color: #1a1a1a;
+    color: #00A86B;
 }
 
 .terms-scroll-box h3 {
