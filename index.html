@@ -7,79 +7,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Popup Styling */
-.popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.2s ease;
-    backdrop-filter: blur(8px);
-}
-
-.popup-overlay.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.popup-card {
-    background: white;
-    width: 90%;
-    max-width: 500px;
-    padding: 50px 40px;
-    border-radius: 20px;
-    position: relative;
-    text-align: center;
-    transform: scale(0.7);
-    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    border: 2px solid var(--gold);
-}
-
-.popup-overlay.show .popup-card {
-    transform: scale(1);
-}
-
-.close-popup {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    font-size: 30px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--gray);
-}
-
-.gold-star {
-    font-size: 3rem;
-    color: var(--gold);
-    margin-bottom: 20px;
-}
-
-.popup-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-}
-
-.popup-content h3 {
-    color: var(--gold);
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 1.2rem;
-}
-
-.popup-content p {
-    margin-bottom: 30px;
-}
         /* Reset & Base */
         * {
             margin: 0;
@@ -89,11 +16,12 @@
         }
         
         :root {
-            --gold: #D4AF37;
-            --black: #000000;
-            --dark: #111111;
-            --light: #F9F7F3;
-            --gray: #888888;
+            /* NEW LUXURY PALETTE: Midnight Blue & Emerald Green */
+            --primary: #00A86B;       /* Emerald Accent Color */
+            --black: #0B132B;         /* Midnight Deep Blue */
+            --dark: #1C2541;          /* Elegant Navy/Charcoal */
+            --light: #F4F7F6;         /* Ice Crisp White */
+            --gray: #6C7A89;          /* Steel Gray for clean prose */
             --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
         }
         
@@ -181,9 +109,15 @@
             left: 0;
         }
         
-        .btn-gold {
-            background-color: var(--gold);
-            border-color: var(--gold);
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            color: var(--primary);
+            border-color: var(--primary);
         }
         
         /* Header & Navigation */
@@ -215,10 +149,11 @@
             font-weight: 800;
             color: var(--black);
             letter-spacing: 2px;
+            text-decoration: none;
         }
         
         .logo span {
-            color: var(--gold);
+            color: var(--primary);
         }
         
         .nav-links {
@@ -244,7 +179,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background-color: var(--gold);
+            background-color: var(--primary);
             transition: width 0.3s ease;
         }
         
@@ -253,7 +188,7 @@
         }
         
         .nav-links a:hover {
-            color: var(--gold);
+            color: var(--primary);
         }
         
         .mobile-menu-btn {
@@ -271,7 +206,7 @@
             position: relative;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 100%);
+            background: linear-gradient(135deg, rgba(11, 19, 43, 0.8) 0%, rgba(28, 37, 65, 0.5) 100%);
             color: white;
             overflow: hidden;
         }
@@ -325,7 +260,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 3px;
-            background-color: var(--gold);
+            background-color: var(--primary);
         }
         
         .info-cards {
@@ -350,7 +285,7 @@
         
         .info-card i {
             font-size: 3.5rem;
-            color: var(--gold);
+            color: var(--primary);
             margin-bottom: 25px;
         }
         
@@ -361,7 +296,7 @@
         /* Countdown Timer */
         .countdown-section {
             padding: 100px 0;
-            background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(11, 19, 43, 0.9), rgba(28, 37, 65, 0.95)), url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             color: white;
@@ -386,13 +321,14 @@
             border-radius: 10px;
             min-width: 130px;
             backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .countdown-number {
             font-size: 3.5rem;
             font-weight: 700;
             font-family: 'Playfair Display', serif;
-            color: var(--gold);
+            color: var(--primary);
         }
         
         .countdown-label {
@@ -400,9 +336,10 @@
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-top: 10px;
+            color: rgba(255, 255, 255, 0.8);
         }
         
-        /* Judges Section */
+        /* Judges / Sponsors Section */
         .judges-section {
             padding: 120px 0;
             background-color: white;
@@ -424,7 +361,7 @@
             width: 200px;
             height: 200px;
             border-radius: 50%;
-            margin: 0 auto 25px;
+            margin: 0  auto 25px;
             overflow: hidden;
             border: 3px solid var(--light);
             transition: var(--transition);
@@ -432,7 +369,7 @@
         
         .judge-card:hover .judge-img {
             transform: scale(1.05);
-            border-color: var(--gold);
+            border-color: var(--primary);
         }
         
         .judge-img img {
@@ -446,7 +383,7 @@
         }
         
         .judge-title {
-            color: var(--gold);
+            color: var(--primary);
             font-weight: 600;
             font-size: 0.9rem;
             letter-spacing: 1.5px;
@@ -467,6 +404,7 @@
             background-color: white;
             border-radius: 15px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--primary);
         }
         
         .cta-box h2 {
@@ -502,7 +440,7 @@
         }
         
         .footer-logo span {
-            color: var(--gold);
+            color: var(--primary);
         }
         
         .footer-about p {
@@ -531,7 +469,7 @@
         }
         
         .footer-links a:hover {
-            color: var(--gold);
+            color: var(--primary);
             padding-left: 5px;
         }
         
@@ -563,7 +501,7 @@
         }
         
         .social-icons a:hover {
-            background-color: var(--gold);
+            background-color: var(--primary);
             transform: translateY(-5px);
         }
         
@@ -575,19 +513,85 @@
             font-size: 0.9rem;
         }
         
-        /* Responsive */
+        /* Popup Styling */
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 19, 43, 0.85);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(8px);
+        }
+
+        .popup-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-card {
+            background: white;
+            width: 90%;
+            max-width: 500px;
+            padding: 50px 40px;
+            border-radius: 20px;
+            position: relative;
+            text-align: center;
+            transform: scale(0.7);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 2px solid var(--primary);
+        }
+
+        .popup-overlay.show .popup-card {
+            transform: scale(1);
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--gray);
+        }
+
+        .gold-star {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .popup-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .popup-content h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1.2rem;
+        }
+
+        .popup-content p {
+            margin-bottom: 30px;
+        }
+
+        /* Responsive styling */
         @media (max-width: 1024px) {
-            h1 {
-                font-size: 4rem;
-            }
-            
-            h2 {
-                font-size: 2.8rem;
-            }
-            
-            .hero h1 {
-                font-size: 4.5rem;
-            }
+            h1 { font-size: 4rem; }
+            h2 { font-size: 2.8rem; }
+            .hero h1 { font-size: 4.5rem; }
         }
         
         @media (max-width: 768px) {
@@ -603,62 +607,22 @@
                 transition: left 0.4s ease;
                 z-index: 999;
             }
-            
-            .nav-links.active {
-                left: 0;
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            h1 {
-                font-size: 3.2rem;
-            }
-            
-            h2 {
-                font-size: 2.4rem;
-            }
-            
-            .hero h1 {
-                font-size: 3.5rem;
-            }
-            
-            .hero p {
-                font-size: 1.2rem;
-            }
-            
-            .countdown {
-                flex-wrap: wrap;
-            }
-            
-            .countdown-item {
-                min-width: 110px;
-            }
+            .nav-links.active { left: 0; }
+            .mobile-menu-btn { display: block; }
+            h1 { font-size: 3.2rem; }
+            h2 { font-size: 2.4rem; }
+            .hero h1 { font-size: 3.5rem; }
+            .hero p { font-size: 1.2rem; }
+            .countdown { flex-wrap: wrap; }
+            .countdown-item { min-width: 110px; }
         }
         
         @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            h2 {
-                font-size: 2rem;
-            }
-            
-            .btn {
-                padding: 15px 30px;
-                font-size: 0.9rem;
-            }
-            
-            .countdown-item {
-                min-width: 90px;
-                padding: 20px 10px;
-            }
-            
-            .countdown-number {
-                font-size: 2.5rem;
-            }
+            .hero h1 { font-size: 2.8rem; }
+            h2 { font-size: 2rem; }
+            .btn { padding: 15px 30px; font-size: 0.9rem; }
+            .countdown-item { min-width: 90px; padding: 20px 10px; }
+            .countdown-number { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -693,7 +657,7 @@
                 <h1>PRESTIGE FACE NIGERIA</h1>
                 <p>Discover Nigeria's next top model. Join the most prestigious modeling competition in West Africa. Winners receive international agency contracts, cash prizes, and magazine features.</p>
                 <div class="hero-buttons">
-                    <a href="#apply" class="btn btn-gold">Apply Now</a>
+                    <a href="#apply" class="btn btn-primary">Apply Now</a>
                     <a href="#about" class="btn" style="margin-left: 20px; background: transparent; border-color: white;">Learn More</a>
                 </div>
             </div>
@@ -712,7 +676,7 @@
                 <div class="info-card">
                     <i class="fas fa-crown"></i>
                     <h3>Grand Prize</h3>
-                    <p>100,000 naira cash prize, international modeling contract with top agencies in London and New York, and a 6-page editorial feature in Vogue Nigeria.</p>
+                    <p>1,000,000 naira cash prize, international modeling contract with top agencies in London and New York, and a 6-page editorial feature in Vogue Nigeria.</p>
                 </div>
                 
                 <div class="info-card">
@@ -758,11 +722,11 @@
                 </div>
             </div>
             
-            <a href="#apply" class="btn btn-gold">Apply Now</a>
+            <a href="#apply" class="btn btn-primary">Apply Now</a>
         </div>
     </section>
 
-    <!-- Judges -->
+    <!-- Sponsors -->
     <section class="judges-section" id="Sponsors">
         <div class="container">
             <div class="section-header">
@@ -816,14 +780,14 @@
                 <div class="requirements">
                     <h3 style="margin-bottom: 20px; text-align: left;">Requirements:</h3>
                     <ul style="text-align: left; list-style: none; margin-bottom: 40px;">
-                        <li style="margin-bottom: 10px; color: var(--gray);"><i class="fas fa-check" style="color: var(--gold); margin-right: 10px;"></i> Nigerian citizen or resident</li>
-                        <li style="margin-bottom: 10px; color: var(--gray);"><i class="fas fa-check" style="color: var(--gold); margin-right: 10px;"></i> Age 16-28 (as of December 31, 2026)</li>
-                        <li style="margin-bottom: 10px; color: var(--gray);"><i class="fas fa-check" style="color: var(--gold); margin-right: 10px;"></i> Minimum height: 173cm (female) / 183cm (male)</li>
-                        <li style="margin-bottom: 10px; color: var(--gray);"><i class="fas fa-check" style="color: var(--gold); margin-right: 10px;"></i> No previous professional modeling contracts</li>
+                        <li style="margin-bottom: 10px; color: var(--gray);"><i class="fas fa-check" style="color: var(--primary); margin-right: 10px;"></i> Nigerian citizen or resident</li>
+                        <li style="margin-bottom: 10px; color: var(--gray);"><i class="fas fa-check" style="color: var(--primary); margin-right: 10px;"></i> Age 16-28 (as of December 31, 2026)</li>
+                        <li style="margin-bottom: 10px; color: var(--gray);"><i class="fas fa-check" style="color: var(--primary); margin-right: 10px;"></i> Minimum height: 173cm (female) / 183cm (male)</li>
+                        <li style="margin-bottom: 10px; color: var(--gray);"><i class="fas fa-check" style="color: var(--primary); margin-right: 10px;"></i> No previous professional modeling contracts</li>
                     </ul>
                 </div>
                 
-                <a href="modeling web/signup.html" class="btn btn-gold" onclick="openApplicationForm()">Start Application</a>
+                <a href="modeling web/signup.html" class="btn btn-primary" onclick="openApplicationForm()">Start Application</a>
                 <p style="margin-top: 25px; font-size: 0.9rem;">Application closes in <span id="countdown-text">30 days</span></p>
             </div>
         </div>
@@ -838,7 +802,7 @@
                     <p>Prestige Face Nigeria is the nation's premier modeling competition, dedicated to discovering and nurturing the next generation of Nigerian modeling talent.</p>
                     <div class="social-icons">
                         <a href="https://www.instagram.com/prestigefaceng?igsh=MWJmajRianQxbjFodw=="><i class="fab fa-instagram"></i></a>
-                        <a href="https://x.com/prestigefaceng"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-tiktok"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
@@ -870,6 +834,20 @@
             </div>
         </div>
     </footer>
+
+    <!-- Entry Popup Card -->
+    <div id="entryPopup" class="popup-overlay">
+        <div class="popup-card">
+            <button class="close-popup" id="closePopup">&times;</button>
+            <div class="popup-content">
+                <i class="fas fa-star gold-star"></i>
+                <h2>PFN 2026</h2>
+                <h3>The Spotlight Awaits</h3>
+                <p>Registration for the 2026 Season is now officially open. Do you have what it takes to be the next Face of Nigeria?</p>
+                <a href="#apply" class="btn btn-primary" id="popupApplyBtn">Apply Now</a>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Mobile Menu Toggle
@@ -903,7 +881,7 @@
         
         // Countdown Timer
         function updateCountdown() {
-            const deadline = new Date('May 15, 2026 23:59:59').getTime();
+            const deadline = new Date('June 17, 2026 23:59:59').getTime();
             const now = new Date().getTime();
             const timeLeft = deadline - now;
             
@@ -912,42 +890,48 @@
             const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
             
-            document.getElementById('days').textContent = days.toString().padStart(2, '0');
-            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            // Safety handle if values drop below 0
+            const displayDays = days < 0 ? 0 : days;
+            const displayHours = hours < 0 ? 0 : hours;
+            const displayMinutes = minutes < 0 ? 0 : minutes;
+            const displaySeconds = seconds < 0 ? 0 : seconds;
+
+            document.getElementById('days').textContent = displayDays.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = displayHours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = displayMinutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = displaySeconds.toString().padStart(2, '0');
             
-            document.getElementById('countdown-text').textContent = `${days} days, ${hours} hours`;
+            document.getElementById('countdown-text').textContent = `${displayDays} days, ${displayHours} hours`;
         }
         
         // Update countdown every second
         setInterval(updateCountdown, 1000);
         updateCountdown(); // Initial call
         
-// Snap-open Popup Logic
-document.addEventListener('DOMContentLoaded', () => {
-    const popup = document.getElementById('entryPopup');
-    const closeBtn = document.getElementById('closePopup');
-    const popupApplyBtn = document.getElementById('popupApplyBtn');
+        // Snap-open Popup Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const popup = document.getElementById('entryPopup');
+            const closeBtn = document.getElementById('closePopup');
+            const popupApplyBtn = document.getElementById('popupApplyBtn');
 
-    // Show popup immediately without delay
-    popup.classList.add('show');
+            // Show popup immediately without delay
+            popup.classList.add('show');
 
-    // Close logic remains the same
-    closeBtn.addEventListener('click', () => {
-        popup.classList.remove('show');
-    });
+            // Close logic
+            closeBtn.addEventListener('click', () => {
+                popup.classList.remove('show');
+            });
 
-    popupApplyBtn.addEventListener('click', () => {
-        popup.classList.remove('show');
-    });
+            popupApplyBtn.addEventListener('click', () => {
+                popup.classList.remove('show');
+            });
 
-    window.addEventListener('click', (e) => {
-        if (e.target === popup) {
-            popup.classList.remove('show');
-        }
-    });
-});
+            window.addEventListener('click', (e) => {
+                if (e.target === popup) {
+                    popup.classList.remove('show');
+                }
+            });
+        });
         
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -967,19 +951,5 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     </script>
-
-    <!-- Entry Popup Card -->
-<div id="entryPopup" class="popup-overlay">
-    <div class="popup-card">
-        <button class="close-popup" id="closePopup">&times;</button>
-        <div class="popup-content">
-            <i class="fas fa-star gold-star"></i>
-            <h2>PFN 2026</h2>
-            <h3>The Spotlight Awaits</h3>
-            <p>Registration for the 2026 Season is now officially open. Do you have what it takes to be the next Face of Nigeria?</p>
-            <a href="#apply" class="btn btn-gold" id="popupApplyBtn">Apply Now</a>
-        </div>
-    </div>
-</div>
 </body>
 </html>
