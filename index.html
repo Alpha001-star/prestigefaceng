@@ -389,7 +389,28 @@
             letter-spacing: 1.5px;
             text-transform: uppercase;
         }
+
+        /* Sponsors Flyer Section Styling */
+        .flyer-container {
+            max-width: 800px; /* Limits the max size of the flyer so it doesn't get too large on desktop */
+            margin: 60px auto 0; /* Centers the container and gives space from the header */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); /* Adds an elegant depth shadow */
+            border-radius: 15px; /* Matches the curved corners of your other elements */
+            overflow: hidden; /* Ensures the image doesn't bleed out of the curved borders */
+            border: 2px solid var(--gold); /* Optional: Adds an elegant gold outline around your flyer */
+        }
         
+        .sponsor-flyer {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .flyer-container:hover .sponsor-flyer {
+            transform: scale(1.02); /* Subtle hover effect matching the premium feel of the site */
+        }
         /* Application CTA */
         .cta-section {
             padding: 120px 0;
@@ -726,7 +747,7 @@
         </div>
     </section>
 
-    <!-- Sponsors -->
+   <!-- Sponsors Flyer Section -->
     <section class="judges-section" id="Sponsors">
         <div class="container">
             <div class="section-header">
@@ -734,38 +755,9 @@
                 <p>Brands sponsoring and supporting Nigeria's next top model</p>
             </div>
             
-            <div class="judges-grid">
-                <div class="judge-card">
-                    <div class="judge-img">
-                        <img src="DripCore.png" alt="DripCore">
-                    </div>
-                    <h3>DripCore</h3>
-                    <p class="judge-title">Core of the culture.</p>
-                </div>
-                
-                <div class="judge-card">
-                    <div class="judge-img">
-                        <img src="Elvare.png" alt="Elvare">
-                    </div>
-                    <h3>Elvare</h3>
-                    <p class="judge-title">Crafted to captivate.</p>
-                </div>
-                
-                <div class="judge-card">
-                    <div class="judge-img">
-                        <img src="BiteRush.png" alt="BiteRush">
-                    </div>
-                    <h3>BiteRush</h3>
-                    <p class="judge-title">Taste the rush.</p>
-                </div>
-                
-                <div class="judge-card">
-                    <div class="judge-img">
-                        <img src="Noire.png" alt="Noire">
-                    </div>
-                    <h3>Noire</h3>
-                    <p class="judge-title">Define your presence.</p>
-                </div>
+            <!-- Replace the old grid with a single flyer container -->
+            <div class="flyer-container">
+                <img src="SponsorsFlyer.png" alt="Prestige Face Nigeria 2026 Sponsors Flyer" class="sponsor-flyer">
             </div>
         </div>
     </section>
