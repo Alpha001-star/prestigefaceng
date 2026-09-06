@@ -5,24 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prestige Face Nigeria | Modeling Competition 2026</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* Reset & Base */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
         }
         
         :root {
-            /* NEW LUXURY PALETTE: Midnight Blue & Emerald Green */
-            --primary: #00A86B;       /* Emerald Accent Color */
-            --black: #0B132B;         /* Midnight Deep Blue */
-            --dark: #1C2541;          /* Elegant Navy/Charcoal */
-            --light: #F4F7F6;         /* Ice Crisp White */
-            --gray: #6C7A89;          /* Steel Gray for clean prose */
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            /* LUXURY PLATINUM & SILVER PALETTE */
+            --primary: #CCCCCC;        /* Polished Silver Accent */
+            --primary-dark: #A6A6A6;   /* Deep Platinum */
+            --black: #0A0A0B;          /* Pure Obsidian Black */
+            --dark: #121214;           /* Off-Black Eerie Charcoal */
+            --light: #F8F9FA;          /* Matte Crisp White */
+            --silver-bg: #EFEFEF;      /* Soft Light Gray for UI Blocks */
+            --gray: #6E6E73;           /* Editorial Slate Gray for Prose */
+            --border: rgba(255, 255, 255, 0.1);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         
         html {
@@ -31,22 +36,24 @@
         
         body {
             background-color: var(--light);
-            color: var(--dark);
+            color: var(--black);
             overflow-x: hidden;
+            letter-spacing: -0.01em;
         }
         
         .container {
-            width: 90%;
+            width: 100%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
         
         /* Typography */
         h1, h2, h3, h4 {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            line-height: 1.2;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            line-height: 1.15;
+            color: var(--black);
         }
         
         h1 {
@@ -55,69 +62,53 @@
         }
         
         h2 {
-            font-size: 3.2rem;
+            font-size: 3.5rem;
             margin-bottom: 2rem;
-            position: relative;
+            letter-spacing: -0.5px;
         }
         
         h3 {
-            font-size: 1.8rem;
+            font-size: 2rem;
+            font-weight: 500;
         }
         
         p {
-            line-height: 1.7;
+            line-height: 1.75;
             color: var(--gray);
-            font-size: 1.1rem;
+            font-size: 1.05rem;
         }
         
         /* Buttons */
         .btn {
             display: inline-block;
-            padding: 18px 40px;
-            background-color: var(--black);
-            color: white;
+            padding: 16px 36px;
+            background-color: transparent;
+            color: var(--black);
             text-decoration: none;
             font-weight: 600;
-            letter-spacing: 1.5px;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            border: 2px solid var(--black);
+            border: 1px solid var(--black);
             transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
+            cursor: pointer;
         }
         
         .btn:hover {
-            color: var(--black);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background-color: white;
-            transition: left 0.4s ease;
-            z-index: -1;
-        }
-        
-        .btn:hover::before {
-            left: 0;
+            background-color: var(--black);
+            color: white !important;
+            transform: translateY(-2px);
         }
         
         .btn-primary {
-            background-color: var(--primary);
-            border-color: var(--primary);
+            background-color: var(--black);
             color: white;
+            border: 1px solid var(--black);
         }
 
         .btn-primary:hover {
-            color: var(--primary);
-            border-color: var(--primary);
+            background-color: transparent;
+            color: var(--black) !important;
         }
         
         /* Header & Navigation */
@@ -126,15 +117,17 @@
             top: 0;
             width: 100%;
             z-index: 1000;
-            padding: 15px 0;
+            padding: 24px 0;
             transition: var(--transition);
-            background-color: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background-color: rgba(248, 249, 250, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
         
         header.scrolled {
-            padding: 15px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            padding: 16px 0;
+            background-color: rgba(248, 249, 250, 0.95);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
         }
         
         .nav-container {
@@ -144,58 +137,46 @@
         }
         
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 800;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            font-weight: 700;
             color: var(--black);
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             text-decoration: none;
         }
         
         .logo span {
-            color: var(--primary);
+            color: var(--gray);
+            font-weight: 300;
         }
         
         .nav-links {
             display: flex;
             list-style: none;
             gap: 40px;
+            align-items: center;
         }
         
         .nav-links a {
             text-decoration: none;
-            color: var(--dark);
+            color: var(--black);
             font-weight: 500;
-            font-size: 1rem;
-            letter-spacing: 1px;
-            position: relative;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: var(--transition);
             padding: 5px 0;
         }
         
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary);
-            transition: width 0.3s ease;
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
         .nav-links a:hover {
-            color: var(--primary);
+            color: var(--gray);
         }
         
         .mobile-menu-btn {
             display: none;
             background: none;
             border: none;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--black);
             cursor: pointer;
         }
@@ -206,7 +187,7 @@
             position: relative;
             display: flex;
             align-items: center;
-            background: linear-gradient(135deg, rgba(11, 19, 43, 0.8) 0%, rgba(28, 37, 65, 0.5) 100%);
+            background: linear-gradient(to right, rgba(10, 10, 11, 0.9) 30%, rgba(10, 10, 11, 0.4) 100%);
             color: white;
             overflow: hidden;
         }
@@ -219,185 +200,173 @@
             height: 100%;
             object-fit: cover;
             z-index: -1;
+            filter: grayscale(100%) brightness(0.6);
         }
         
         .hero-content {
-            max-width: 800px;
+            max-width: 750px;
             position: relative;
             z-index: 2;
         }
         
         .hero h1 {
             font-size: 5.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1;
+            margin-bottom: 2rem;
+            line-height: 1.05;
             color: white;
+            font-weight: 500;
         }
         
         .hero p {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             margin-bottom: 3rem;
-            color: rgba(255, 255, 255, 0.9);
-            max-width: 600px;
+            color: rgba(255, 255, 255, 0.75);
+            max-width: 580px;
+            font-weight: 300;
         }
         
         /* Competition Info */
         .info-section {
-            padding: 120px 0;
+            padding: 140px 0;
             background-color: white;
         }
         
         .section-header {
             text-align: center;
-            margin-bottom: 5rem;
+            max-width: 600px;
+            margin: 0 auto 6rem;
         }
         
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--primary);
+        .section-header h2 {
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--gray);
         }
         
         .info-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
+            gap: 32px;
         }
         
         .info-card {
-            text-align: center;
-            padding: 40px 30px;
-            border-radius: 10px;
+            text-align: left;
+            padding: 48px 36px;
             background-color: var(--light);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             transition: var(--transition);
         }
         
         .info-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            background-color: var(--black);
+            border-color: var(--black);
+            transform: translateY(-4px);
+        }
+
+        .info-card:hover h3, .info-card:hover p, .info-card:hover i {
+            color: white;
         }
         
         .info-card i {
-            font-size: 3.5rem;
-            color: var(--primary);
-            margin-bottom: 25px;
+            font-size: 2rem;
+            color: var(--black);
+            margin-bottom: 32px;
+            transition: var(--transition);
         }
         
         .info-card h3 {
-            margin-bottom: 15px;
+            margin-bottom: 16px;
+            transition: var(--transition);
+        }
+
+        .info-card p {
+            font-size: 1rem;
+            transition: var(--transition);
         }
         
         /* Countdown Timer */
         .countdown-section {
-            padding: 100px 0;
-            background: linear-gradient(rgba(11, 19, 43, 0.9), rgba(28, 37, 65, 0.95)), url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+            padding: 140px 0;
+            background: linear-gradient(rgba(10, 10, 11, 0.85), rgba(10, 10, 11, 0.95)), url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             color: white;
             text-align: center;
         }
         
         .countdown-section h2 {
             color: white;
-            margin-bottom: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .countdown-section p {
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
         }
         
         .countdown {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin-bottom: 50px;
+            gap: 24px;
+            margin-bottom: 4rem;
         }
         
         .countdown-item {
-            background-color: rgba(255, 255, 255, 0.1);
-            padding: 30px 20px;
-            border-radius: 10px;
-            min-width: 130px;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.03);
+            padding: 32px 24px;
+            min-width: 140px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
         }
         
         .countdown-number {
-            font-size: 3.5rem;
-            font-weight: 700;
-            font-family: 'Playfair Display', serif;
-            color: var(--primary);
+            font-size: 4rem;
+            font-weight: 400;
+            font-family: 'Cormorant Garamond', serif;
+            color: white;
+            line-height: 1;
         }
         
         .countdown-label {
-            font-size: 1rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            margin-top: 10px;
-            color: rgba(255, 255, 255, 0.8);
+            margin-top: 12px;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .countdown-section .btn {
+            border-color: white;
+            color: white;
+        }
+
+        .countdown-section .btn:hover {
+            background-color: white;
+            color: var(--black) !important;
         }
         
-        /* Judges / Sponsors Section */
+        /* Sponsors Section */
         .judges-section {
-            padding: 120px 0;
+            padding: 140px 0;
             background-color: white;
         }
         
-        .judges-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 40px;
-            margin-top: 60px;
-        }
-        
-        .judge-card {
-            text-align: center;
-            transition: var(--transition);
-        }
-        
-        .judge-img {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            margin: 0  auto 25px;
-            overflow: hidden;
-            border: 3px solid var(--light);
-            transition: var(--transition);
-        }
-        
-        .judge-card:hover .judge-img {
-            transform: scale(1.05);
-            border-color: var(--primary);
-        }
-        
-        .judge-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .judge-card h3 {
-            margin-bottom: 10px;
-        }
-        
-        .judge-title {
-            color: var(--primary);
-            font-weight: 600;
-            font-size: 0.9rem;
-            letter-spacing: 1.5px;
-            text-transform: uppercase;
-        }
-
-        /* Sponsors Flyer Section Styling */
         .flyer-container {
-            max-width: 800px; /* Limits the max size of the flyer so it doesn't get too large on desktop */
-            margin: 60px auto 0; /* Centers the container and gives space from the header */
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1); /* Adds an elegant depth shadow */
-            border-radius: 15px; /* Matches the curved corners of your other elements */
-            overflow: hidden; /* Ensures the image doesn't bleed out of the curved borders */
-            border: 2px solid var(--gold); /* Optional: Adds an elegant gold outline around your flyer */
+            max-width: 750px;
+            margin: 0 auto;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.06);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
         }
         
         .sponsor-flyer {
@@ -405,74 +374,118 @@
             height: auto;
             display: block;
             object-fit: cover;
+            filter: grayscale(20%);
             transition: var(--transition);
         }
 
         .flyer-container:hover .sponsor-flyer {
-            transform: scale(1.02); /* Subtle hover effect matching the premium feel of the site */
+            transform: scale(1.01);
+            filter: grayscale(0%);
         }
+
         /* Application CTA */
         .cta-section {
-            padding: 120px 0;
+            padding: 140px 0;
             background-color: var(--light);
-            text-align: center;
         }
         
         .cta-box {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
-            padding: 60px 40px;
+            padding: 80px 60px;
             background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
-            border-top: 4px solid var(--primary);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            text-align: center;
         }
         
         .cta-box h2 {
-            margin-bottom: 20px;
+            margin-bottom: 1.5rem;
         }
         
         .cta-box p {
-            margin-bottom: 40px;
-            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .requirements {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .requirements h3 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            text-align: left;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 8px;
+        }
+
+        .requirements ul {
+            text-align: left;
+            list-style: none;
+            margin-bottom: 48px;
+        }
+
+        .requirements li {
+            margin-bottom: 16px;
+            color: var(--gray);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .requirements li i {
+            color: var(--black);
+            margin-right: 14px;
+            font-size: 0.85rem;
         }
         
         /* Footer */
         footer {
             background-color: var(--black);
             color: white;
-            padding: 80px 0 40px;
+            padding: 100px 0 40px;
         }
         
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 50px;
-            margin-bottom: 50px;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 64px;
+            margin-bottom: 64px;
         }
         
         .footer-logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            font-weight: 800;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
             color: white;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
+            letter-spacing: 3px;
+            margin-bottom: 24px;
         }
         
         .footer-logo span {
-            color: var(--primary);
+            color: var(--gray);
         }
         
         .footer-about p {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 25px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 32px;
+            max-width: 320px;
+            font-size: 0.95rem;
         }
         
         .footer-links h4, .footer-contact h4 {
-            font-size: 1.3rem;
-            margin-bottom: 25px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 28px;
             color: white;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
         }
         
         .footer-links ul {
@@ -480,58 +493,63 @@
         }
         
         .footer-links li {
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
         
         .footer-links a {
-            color: rgba(255, 255, 255, 0.7);
+            color: rgba(255, 255, 255, 0.5);
             text-decoration: none;
+            font-size: 0.95rem;
             transition: var(--transition);
         }
         
         .footer-links a:hover {
-            color: var(--primary);
-            padding-left: 5px;
+            color: white;
         }
         
         .footer-contact p {
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 15px;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 18px;
             display: flex;
-            align-items: center;
-            gap: 10px;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+
+        .footer-contact i {
+            margin-top: 5px;
+            font-size: 0.9rem;
         }
         
         .social-icons {
             display: flex;
-            gap: 20px;
-            margin-top: 30px;
+            gap: 16px;
         }
         
         .social-icons a {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 45px;
-            height: 45px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.05);
             color: white;
-            font-size: 1.2rem;
+            font-size: 1rem;
             transition: var(--transition);
         }
         
         .social-icons a:hover {
-            background-color: var(--primary);
-            transform: translateY(-5px);
+            background-color: white;
+            color: var(--black);
+            transform: translateY(-3px);
         }
         
         .copyright {
             text-align: center;
             padding-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 0.85rem;
         }
         
         /* Popup Styling */
@@ -541,15 +559,15 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(11, 19, 43, 0.85);
+            background: rgba(10, 10, 11, 0.7);
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 2000;
             opacity: 0;
             visibility: hidden;
-            transition: all 0.2s ease;
-            backdrop-filter: blur(8px);
+            transition: var(--transition);
+            backdrop-filter: blur(15px);
         }
 
         .popup-overlay.show {
@@ -560,14 +578,13 @@
         .popup-card {
             background: white;
             width: 90%;
-            max-width: 500px;
-            padding: 50px 40px;
-            border-radius: 20px;
+            max-width: 460px;
+            padding: 60px 40px;
             position: relative;
             text-align: center;
-            transform: scale(0.7);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 2px solid var(--primary);
+            transform: scale(0.95);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
         }
 
         .popup-overlay.show .popup-card {
@@ -576,79 +593,92 @@
 
         .close-popup {
             position: absolute;
-            top: 20px;
-            right: 20px;
-            font-size: 30px;
+            top: 24px;
+            right: 24px;
+            font-size: 24px;
             background: none;
             border: none;
             cursor: pointer;
-            color: var(--gray);
+            color: var(--black);
+            line-height: 1;
         }
 
         .gold-star {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: var(--black);
+            margin-bottom: 24px;
         }
 
         .popup-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+            font-size: 3rem;
+            margin-bottom: 8px;
         }
 
         .popup-content h3 {
-            color: var(--primary);
-            margin-bottom: 20px;
+            color: var(--gray);
+            margin-bottom: 24px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            font-size: 1.2rem;
+            font-size: 0.8rem;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 600;
         }
 
         .popup-content p {
-            margin-bottom: 30px;
+            margin-bottom: 32px;
+            font-size: 1rem;
         }
 
         /* Responsive styling */
         @media (max-width: 1024px) {
-            h1 { font-size: 4rem; }
+            h1 { font-size: 3.8rem; }
             h2 { font-size: 2.8rem; }
-            .hero h1 { font-size: 4.5rem; }
+            .hero h1 { font-size: 4.2rem; }
+            .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .footer-about { grid-column: span 2; }
         }
         
         @media (max-width: 768px) {
+            header { padding: 20px 0; }
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 73px;
                 left: -100%;
                 width: 100%;
+                height: calc(100vh - 73px);
                 flex-direction: column;
-                background-color: white;
-                padding: 30px;
-                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-                transition: left 0.4s ease;
+                background-color: var(--light);
+                padding: 48px 24px;
+                gap: 32px;
+                transition: var(--transition);
                 z-index: 999;
+                align-items: flex-start;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
             }
             .nav-links.active { left: 0; }
             .mobile-menu-btn { display: block; }
-            h1 { font-size: 3.2rem; }
+            h1 { font-size: 3rem; }
             h2 { font-size: 2.4rem; }
-            .hero h1 { font-size: 3.5rem; }
-            .hero p { font-size: 1.2rem; }
-            .countdown { flex-wrap: wrap; }
-            .countdown-item { min-width: 110px; }
+            .hero h1 { font-size: 3.2rem; }
+            .hero p { font-size: 1.1rem; }
+            .countdown { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+            .countdown-item { min-width: auto; padding: 24px 16px; }
+            .countdown-number { font-size: 3rem; }
+            .cta-box { padding: 60px 24px; }
+            .footer-content { grid-template-columns: 1fr; }
+            .footer-about { grid-column: span 1; }
         }
         
         @media (max-width: 576px) {
-            .hero h1 { font-size: 2.8rem; }
+            .hero h1 { font-size: 2.6rem; }
             h2 { font-size: 2rem; }
-            .btn { padding: 15px 30px; font-size: 0.9rem; }
-            .countdown-item { min-width: 90px; padding: 20px 10px; }
-            .countdown-number { font-size: 2.5rem; }
+            .btn { width: 100%; text-align: center; }
+            .hero-buttons { display: flex; flex-direction: column; gap: 16px; }
+            .hero-buttons .btn { margin-left: 0 !important; }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header id="header">
         <div class="container nav-container">
             <a href="#" class="logo">P<span>F</span>N</a>
@@ -667,7 +697,6 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="hero" id="home">
         <video autoplay muted loop class="hero-video">
             <source src="https://player.vimeo.com/external/434960406.sd.mp4?s=94db289a62d0a7764c0e84cf9a76fd7a7db1dac5&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
@@ -679,18 +708,17 @@
                 <p>Discover Nigeria's next top model. Join the most prestigious modeling competition in West Africa. Winners receive international agency contracts, cash prizes, and magazine features.</p>
                 <div class="hero-buttons">
                     <a href="#apply" class="btn btn-primary">Apply Now</a>
-                    <a href="#about" class="btn" style="margin-left: 20px; background: transparent; border-color: white;">Learn More</a>
+                    <a href="#about" class="btn" style="margin-left: 20px; border-color: white; color: white;">Learn More</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Competition Info -->
     <section class="info-section" id="about">
         <div class="container">
             <div class="section-header">
                 <h2>The Competition</h2>
-                <p>Prestige Face Nigeria is more than a competition—it's a launchpad for modeling careers.</p>
+                <p>More than a competition—a global career launchpad.</p>
             </div>
             
             <div class="info-cards">
@@ -703,23 +731,22 @@
                 <div class="info-card">
                     <i class="fas fa-globe-africa"></i>
                     <h3>National Exposure</h3>
-                    <p>Winner will be featured in a nationwide billboard campaign, becomes the ambassador with the brands patnering with PFN and appear on the cover of major fashion magazines across Africa.</p>
+                    <p>Winner will be featured in a nationwide billboard campaign, becomes the ambassador with the brands partnering with PFN and appear on the cover of major fashion magazines across Africa.</p>
                 </div>
                 
                 <div class="info-card">
                     <i class="fas fa-gem"></i>
                     <h3>Exclusive Training</h3>
-                    <p>1st and 2nd runner up receive cash price professional training from industry experts in runway, posing, portfolio development, and brand building.</p>
+                    <p>1st and 2nd runner up receive cash prize professional training from industry experts in runway, posing, portfolio development, and brand building.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Countdown Timer -->
     <section class="countdown-section" id="countdown">
         <div class="container">
             <h2>Application Deadline</h2>
-            <p>Submit your application before time runs out</p>
+            <p>Submit your application before the window closes</p>
             
             <div class="countdown" id="countdownTimer">
                 <div class="countdown-item">
@@ -743,57 +770,55 @@
                 </div>
             </div>
             
-            <a href="#apply" class="btn btn-primary">Apply Now</a>
+            <a href="#apply" class="btn">Apply Now</a>
         </div>
     </section>
 
-   <!-- Sponsors Flyer Section -->
-    <section class="judges-section" id="Sponsors">
+   <section class="judges-section" id="Sponsors">
         <div class="container">
             <div class="section-header">
                 <h2>Meet Our Sponsors</h2>
-                <p>Brands sponsoring and supporting Nigeria's next top model</p>
+                <p>Distinguished partners supporting Nigeria's next fashion icons</p>
             </div>
             
-            <!-- Replace the old grid with a single flyer container -->
             <div class="flyer-container">
                 <img src="SponsorsFlyer.png" alt="Prestige Face Nigeria 2026 Sponsors Flyer" class="sponsor-flyer">
             </div>
         </div>
     </section>
 
-    <!-- Application CTA -->
     <section class="cta-section" id="apply">
         <div class="container">
             <div class="cta-box">
-                <h2>Ready to Become a Star?</h2>
+                <h2>The Spotlight Awaits You</h2>
                 <p>Join thousands of aspiring models competing for the title of Prestige Face Nigeria 2026. Applications are free and open to all Nigerian residents aged 16-28.</p>
                 
                 <div class="requirements">
-                    <h3 style="margin-bottom: 20px; text-align: left;">Requirements:</h3>
-                    <ul style="text-align: left; list-style: none; margin-bottom: 40px;">
-                        <li style="margin-bottom: 10px; color: var(--gray);"><i class="fas fa-check" style="color: var(--primary); margin-right: 10px;"></i> Nigerian citizen or resident</li>
-                        <li style="margin-bottom: 10px; color: var(--gray);"><i class="fas fa-check" style="color: var(--primary); margin-right: 10px;"></i> Age 16-28 (as of December 31, 2026)</li>
-                        <li style="margin-bottom: 10px; color: var(--gray);"><i class="fas fa-check" style="color: var(--primary); margin-right: 10px;"></i> Minimum height: 173cm (female) / 183cm (male)</li>
-                        <li style="margin-bottom: 10px; color: var(--gray);"><i class="fas fa-check" style="color: var(--primary); margin-right: 10px;"></i> No previous professional modeling contracts</li>
+                    <h3>Requirements</h3>
+                    <ul>
+                        <li><i class="fas fa-minus"></i> Nigerian citizen or permanent resident</li>
+                        <li><i class="fas fa-minus"></i> Age 16-28 (as of December 31, 2026)</li>
+                        <li><i class="fas fa-minus"></i> Minimum height: 173cm (female) / 183cm (male)</li>
+                        <li><i class="fas fa-minus"></i> No current exclusive professional modeling contracts</li>
                     </ul>
                 </div>
                 
-                <a href="modeling web/signup.html" class="btn btn-primary" onclick="openApplicationForm()">Start Application</a>
-                <p style="margin-top: 25px; font-size: 0.9rem;">Application closes in <span id="countdown-text">30 days</span></p>
+                <a href="modeling web/signup.html" class="btn btn-primary">Start Application</a>
+                <p style="margin-top: 28px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gray);">
+                    Application closes in <span id="countdown-text" style="color: var(--black); font-weight: 600;">30 days</span>
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-about">
                     <div class="footer-logo">P<span>F</span>N</div>
-                    <p>Prestige Face Nigeria is the nation's premier modeling competition, dedicated to discovering and nurturing the next generation of Nigerian modeling talent.</p>
+                    <p>Prestige Face Nigeria is the nation's premier modeling competition, dedicated to discovering and nurturing the next generation of global runway talent.</p>
                     <div class="social-icons">
-                        <a href="https://www.instagram.com/prestigefaceng?igsh=MWJmajRianQxbjFodw=="><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/prestigefaceng?igsh=MWJmajRianQxbjFodw==" target="_blank"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-tiktok"></i></a>
@@ -827,15 +852,14 @@
         </div>
     </footer>
 
-    <!-- Entry Popup Card -->
     <div id="entryPopup" class="popup-overlay">
         <div class="popup-card">
             <button class="close-popup" id="closePopup">&times;</button>
             <div class="popup-content">
                 <i class="fas fa-star gold-star"></i>
                 <h2>PFN 2026</h2>
-                <h3>The Spotlight Awaits</h3>
-                <p>Registration for the 2026 Season is now officially open. Do you have what it takes to be the next Face of Nigeria?</p>
+                <h3>The Stage is Set</h3>
+                <p>Registration for the 2026 Season is now officially open. Do you have the look, the walk, and the presence?</p>
                 <a href="#apply" class="btn btn-primary" id="popupApplyBtn">Apply Now</a>
             </div>
         </div>
@@ -864,7 +888,7 @@
         // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
-            if (window.scrollY > 100) {
+            if (window.scrollY > 80) {
                 header.classList.add('scrolled');
             } else {
                 header.classList.remove('scrolled');
@@ -882,7 +906,6 @@
             const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
             
-            // Safety handle if values drop below 0
             const displayDays = days < 0 ? 0 : days;
             const displayHours = hours < 0 ? 0 : hours;
             const displayMinutes = minutes < 0 ? 0 : minutes;
@@ -896,20 +919,17 @@
             document.getElementById('countdown-text').textContent = `${displayDays} days, ${displayHours} hours`;
         }
         
-        // Update countdown every second
         setInterval(updateCountdown, 1000);
-        updateCountdown(); // Initial call
+        updateCountdown();
         
-        // Snap-open Popup Logic
+        // Popup Logic
         document.addEventListener('DOMContentLoaded', () => {
             const popup = document.getElementById('entryPopup');
             const closeBtn = document.getElementById('closePopup');
             const popupApplyBtn = document.getElementById('popupApplyBtn');
 
-            // Show popup immediately without delay
             popup.classList.add('show');
 
-            // Close logic
             closeBtn.addEventListener('click', () => {
                 popup.classList.remove('show');
             });
@@ -928,15 +948,14 @@
         // Smooth scrolling for anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
                 const targetId = this.getAttribute('href');
                 if (targetId === '#') return;
                 
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
+                    e.preventDefault();
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 70,
                         behavior: 'smooth'
                     });
                 }
