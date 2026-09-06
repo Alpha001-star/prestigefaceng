@@ -1,112 +1,147 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login | Prestige Face Nigeria</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --gold: #00A86B;
-      --dark-blue: #1e1e2f;
-      --darker-blue: #0f0f1a;
-      --glass: rgba(255, 255, 255, 0.05);
-      --glass-border: rgba(255, 255, 255, 0.1);
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Prestige Face Nigeria</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* ==========================================================================
+           COLOR PALETTE & DESIGN SYSTEM (Matches Main Site Architecture)
+           ========================================================================== */
+        :root {
+            --primary: #111111;
+            --accent: #c5a880; /* High-Fashion Gold */
+            --light-bg: #f9f9f9;
+            --text-dark: #222222;
+            --text-light: #777777;
+            --white: #ffffff;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Inter', sans-serif; 
+        }
 
-    body {
-      background: radial-gradient(circle at center, var(--dark-blue) 0%, var(--darker-blue) 100%);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
+        body {
+            background-color: var(--light-bg);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
 
-    .auth-container {
-      width: 100%;
-      max-width: 450px;
-      background: var(--glass);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      border-radius: 24px;
-      padding: 40px;
-      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
-    }
+        /* Container designed to mimic the crisp layout parameters of the form wrappers */
+        .auth-container {
+            width: 100%;
+            max-width: 450px;
+            background: var(--white);
+            border: 1px solid #e0e0e0;
+            padding: 50px 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        }
 
-    .login-card h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
-      color: var(--gold);
-      margin-bottom: 8px;
-      text-align: center;
-    }
+        .login-card h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-    .subtitle {
-      color: rgba(255, 255, 255, 0.5);
-      margin-bottom: 35px;
-      font-size: 0.9rem;
-      text-align: center;
-    }
+        .subtitle {
+            color: var(--text-light);
+            margin-bottom: 35px;
+            font-size: 0.9rem;
+            text-align: center;
+            font-weight: 300;
+        }
 
-    .input-group { position: relative; margin-bottom: 20px; }
+        .input-group { 
+            position: relative; 
+            margin-bottom: 20px; 
+        }
 
-    .input-group i {
-      position: absolute;
-      left: 18px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: rgba(255, 255, 255, 0.3);
-      transition: 0.3s;
-    }
+        .input-group i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #aaa;
+            transition: var(--transition);
+        }
 
-    input {
-      width: 100%;
-      padding: 16px 16px 16px 52px;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid var(--glass-border);
-      border-radius: 12px;
-      color: #fff;
-    }
+        input {
+            width: 100%;
+            padding: 14px 16px 14px 52px;
+            background: var(--white);
+            border: 1px solid #ddd;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            outline: none;
+            transition: var(--transition);
+        }
 
-    input:focus { outline: none; border-color: var(--gold); background: rgba(255, 255, 255, 0.1); }
-    input:focus + i { color: var(--gold); }
+        input:focus { 
+            border-color: var(--primary); 
+        }
+        
+        input:focus + i { 
+            color: var(--accent); 
+        }
 
-    .btn-login {
-      width: 100%;
-      padding: 16px;
-      background: var(--gold);
-      color: var(--darker-blue);
-      border: none;
-      border-radius: 12px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.3s;
-      margin-top: 10px;
-    }
+        .btn-login {
+            width: 100%;
+            padding: 15px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 10px;
+        }
 
-    .btn-login:hover { background: #fff; transform: translateY(-3px); }
+        .btn-login:hover { 
+            background: var(--accent);
+        }
 
-    .options {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 25px;
-      font-size: 0.85rem;
-    }
+        .options {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 25px;
+            font-size: 0.85rem;
+        }
 
-    .options a { color: var(--gold); text-decoration: none; opacity: 0.8; }
-    .options a:hover { opacity: 1; text-decoration: underline; }
+        .options a { 
+            color: var(--text-dark); 
+            text-decoration: none; 
+            font-weight: 400;
+            transition: var(--transition);
+        }
+        
+        .options a:hover { 
+            color: var(--accent);
+        }
 
-    footer { 
-      margin-top: 30px; 
-      text-align: center; 
-      font-size: 0.75rem; 
-      color: rgba(255,255,255,0.3); 
-    }
-  </style>
+        footer { 
+            margin-top: 40px; 
+            text-align: center; 
+            font-size: 0.75rem; 
+            color: var(--text-light); 
+            letter-spacing: 2px;
+        }
+    </style>
 </head>
 <body>
 
@@ -134,12 +169,13 @@
         <a href="signup.html">Create Account</a>
       </div>
 
-      <footer>EST. 2026 • PRESTIGE FACE</footer>
+      <footer>EST. 2026 • PRESTIGE FACE NIGERIA</footer>
     </div>
   </main>
 
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
+    // Supabase Client Management
     const SUPABASE_URL = 'https://gykkocmrjfjocmwjwfst.supabase.co';
     const SUPABASE_KEY = 'sb_publishable_WSvJdtO4jRhbXw4PZexD0w_gBEiCkFT';
     const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
