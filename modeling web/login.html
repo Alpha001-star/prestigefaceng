@@ -1,148 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | Prestige Face Nigeria</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        /* ==========================================================================
-           COLOR PALETTE & DESIGN SYSTEM (Matches Main Site Architecture)
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Prestige Face Nigeria</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ==========================================================================
+           COLOR PALETTE & DESIGN SYSTEM (Golden Orange & Black Theme)
            ========================================================================== */
-        :root {
-            --primary: #111111;
-            --accent: #c5a880; /* High-Fashion Gold */
-            --light-bg: #f9f9f9;
-            --text-dark: #222222;
-            --text-light: #777777;
-            --white: #ffffff;
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
+    :root {
+      --primary: #E67E22;
+      /* Vibrant Golden Orange */
+      --primary-dark: #D35400;
+      /* Deep Burned Golden Orange */
+      --black: #0A0A0B;
+      /* Pure Obsidian Black */
+      --dark: #121214;
+      /* Off-Black Charcoal */
+      --light-bg: #FAF8F5;
+      /* Warm Ivory Light Background */
+      --text-dark: #1A1A1A;
+      --text-light: #6E6E73;
+      /* Editorial Slate Gray */
+      --white: #ffffff;
+      --border: rgba(230, 126, 34, 0.2);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
 
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-            font-family: 'Inter', sans-serif; 
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
 
-        body {
-            background-color: var(--light-bg);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+    body {
+      background-color: var(--light-bg);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
 
-        /* Container designed to mimic the crisp layout parameters of the form wrappers */
-        .auth-container {
-            width: 100%;
-            max-width: 450px;
-            background: var(--white);
-            border: 1px solid #e0e0e0;
-            padding: 50px 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-        }
+    /* Container designed to match the form wrappers */
+    .auth-container {
+      width: 100%;
+      max-width: 450px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 50px 40px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    }
 
-        .login-card h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 8px;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+    .login-card h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 8px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
 
-        .subtitle {
-            color: var(--text-light);
-            margin-bottom: 35px;
-            font-size: 0.9rem;
-            text-align: center;
-            font-weight: 300;
-        }
+    .subtitle {
+      color: var(--text-light);
+      margin-bottom: 35px;
+      font-size: 0.9rem;
+      text-align: center;
+      font-weight: 300;
+    }
 
-        .input-group { 
-            position: relative; 
-            margin-bottom: 20px; 
-        }
+    .input-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
 
-        .input-group i {
-            position: absolute;
-            left: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #aaa;
-            transition: var(--transition);
-        }
+    .input-group i {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-light);
+      transition: var(--transition);
+    }
 
-        input {
-            width: 100%;
-            padding: 14px 16px 14px 52px;
-            background: var(--white);
-            border: 1px solid #ddd;
-            color: var(--text-dark);
-            font-size: 0.9rem;
-            outline: none;
-            transition: var(--transition);
-        }
+    input {
+      width: 100%;
+      padding: 14px 16px 14px 52px;
+      background: var(--white);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      color: var(--text-dark);
+      font-size: 0.9rem;
+      outline: none;
+      transition: var(--transition);
+    }
 
-        input:focus { 
-            border-color: var(--primary); 
-        }
-        
-        input:focus + i { 
-            color: var(--accent); 
-        }
+    input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.12);
+    }
 
-        .btn-login {
-            width: 100%;
-            padding: 15px;
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-top: 10px;
-        }
+    input:focus+i {
+      color: var(--primary);
+    }
 
-        .btn-login:hover { 
-            background: var(--accent);
-        }
+    .btn-login {
+      width: 100%;
+      padding: 16px;
+      background: var(--primary);
+      color: var(--white);
+      border: 1px solid var(--primary);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 10px;
+    }
 
-        .options {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 25px;
-            font-size: 0.85rem;
-        }
+    .btn-login:hover {
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+      transform: translateY(-1px);
+    }
 
-        .options a { 
-            color: var(--text-dark); 
-            text-decoration: none; 
-            font-weight: 400;
-            transition: var(--transition);
-        }
-        
-        .options a:hover { 
-            color: var(--accent);
-        }
+    .options {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 25px;
+      font-size: 0.85rem;
+    }
 
-        footer { 
-            margin-top: 40px; 
-            text-align: center; 
-            font-size: 0.75rem; 
-            color: var(--text-light); 
-            letter-spacing: 2px;
-        }
-    </style>
+    .options a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .options a:hover {
+      color: var(--primary);
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--primary-dark);
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+  </style>
 </head>
+
 <body>
 
   <main class="auth-container">
@@ -152,13 +170,13 @@
 
       <form id="loginForm">
         <div class="input-group">
-          <i class="fas fa-envelope"></i>
           <input type="email" id="email" placeholder="Email Address" required>
+          <i class="fas fa-envelope"></i>
         </div>
 
         <div class="input-group">
-          <i class="fas fa-lock"></i>
           <input type="password" id="password" placeholder="Password" required>
+          <i class="fas fa-lock"></i>
         </div>
 
         <button type="submit" class="btn-login" id="loginBtn">Login to Portal</button>
@@ -185,7 +203,7 @@
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
       const btn = document.getElementById('loginBtn');
-      
+
       btn.innerHTML = 'Logging in...';
       btn.disabled = true;
 
@@ -201,4 +219,5 @@
     });
   </script>
 </body>
+
 </html>
