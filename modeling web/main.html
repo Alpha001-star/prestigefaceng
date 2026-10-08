@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prestige Face | Modeling Competition</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <meta name="description" content="Vogue & Vision - The ultimate destination for modeling business insights and high-fashion editorials.">
-    
+    <meta name="description"
+        content="Vogue & Vision - The ultimate destination for modeling business insights and high-fashion editorials.">
+
     <style>
         /* ==========================================================================
            1. RESET & BASE STYLES
            ========================================================================== */
         :root {
-            --primary: #111111;
-            --accent: #c5a880; /* Elegant High-Fashion Gold */
-            --light-bg: #f9f9f9;
-            --text-dark: #222222;
-            --text-light: #777777;
+            --primary: #0a0a0a;
+            /* Rich Deep Black */
+            --accent: #ff9900;
+            /* Radiant Golden Orange */
+            --accent-hover: #e68a00;
+            /* Deep Amber Gold */
+            --dark-bg: #121212;
+            /* Secondary Dark Surface */
+            --card-bg: #1a1a1a;
+            /* Raised Card Background */
+            --border-color: #2a2a2a;
+            /* Muted Dark Border */
+            --text-dark: #ffffff;
+            /* Primary Text */
+            --text-light: #b3b3b3;
+            /* Secondary Muted Text */
             --white: #ffffff;
             --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
@@ -35,12 +50,15 @@
         body {
             font-family: 'Inter', sans-serif;
             color: var(--text-dark);
-            background-color: var(--white);
+            background-color: var(--primary);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        h1, h2, h3, .logo {
+        h1,
+        h2,
+        h3,
+        .logo {
             font-family: 'Playfair Display', serif;
             letter-spacing: 1px;
         }
@@ -63,7 +81,7 @@
         }
 
         .gray-bg {
-            background-color: var(--light-bg);
+            background-color: var(--dark-bg);
         }
 
         .section-title {
@@ -72,12 +90,22 @@
             margin-bottom: 40px;
             position: relative;
             text-transform: uppercase;
+            color: var(--text-dark);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+            margin: 15px auto 0 auto;
         }
 
         .divider {
             border: 0;
             height: 1px;
-            background: #e0e0e0;
+            background: var(--border-color);
             max-width: 1200px;
             margin: 0 auto;
         }
@@ -90,20 +118,20 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(255, 255, 255, 0.95);
+            background-color: rgba(10, 10, 10, 0.92);
             backdrop-filter: blur(10px);
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 24px;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            color: var(--primary);
+            color: var(--accent);
         }
 
         .nav-links {
@@ -117,6 +145,7 @@
             text-transform: uppercase;
             font-weight: 400;
             letter-spacing: 1px;
+            color: var(--white);
         }
 
         .nav-links a:hover {
@@ -130,20 +159,21 @@
         }
 
         .cta-btn {
-            background-color: var(--primary);
-            color: var(--white);
-            border: 1px solid var(--primary);
+            background-color: var(--accent);
+            color: var(--primary);
+            border: 1px solid var(--accent);
             padding: 10px 24px;
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
+            font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
         }
 
         .cta-btn:hover {
             background-color: transparent;
-            color: var(--primary);
+            color: var(--accent);
         }
 
         /* Hamburger Menu */
@@ -157,7 +187,7 @@
         .bar {
             width: 25px;
             height: 2px;
-            background-color: var(--primary);
+            background-color: var(--accent);
             transition: var(--transition);
         }
 
@@ -166,8 +196,8 @@
            ========================================================================== */
         .hero {
             height: 90vh;
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)), 
-                        url('https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1600') no-repeat center center/cover;
+            background: linear-gradient(rgba(10, 10, 10, 0.75), rgba(10, 10, 10, 0.85)),
+                url('https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1600') no-repeat center center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -180,6 +210,8 @@
             font-size: 3.5rem;
             margin-bottom: 20px;
             font-weight: 700;
+            color: var(--accent);
+            text-shadow: 0 0 20px rgba(255, 153, 0, 0.2);
         }
 
         .hero-content p {
@@ -187,22 +219,25 @@
             margin-bottom: 30px;
             font-weight: 300;
             letter-spacing: 2px;
+            color: var(--white);
         }
 
         .btn {
             display: inline-block;
-            border: 1px solid var(--white);
-            color: var(--white);
+            border: 1px solid var(--accent);
+            background-color: var(--accent);
+            color: var(--primary);
             padding: 12px 32px;
             text-transform: uppercase;
             font-size: 0.85rem;
+            font-weight: 600;
             letter-spacing: 1px;
             transition: var(--transition);
         }
 
         .btn:hover {
-            background-color: var(--white);
-            color: var(--primary);
+            background-color: transparent;
+            color: var(--accent);
         }
 
         /* ==========================================================================
@@ -215,15 +250,22 @@
         }
 
         .card {
-            background: var(--white);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 16px;
             transition: var(--transition);
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
         }
 
         .card-img {
             width: 100%;
             height: 400px;
             object-fit: cover;
-            filter: grayscale(20%);
+            filter: grayscale(30%);
             transition: var(--transition);
         }
 
@@ -234,6 +276,7 @@
         .card h3 {
             margin: 20px 0 8px 0;
             font-size: 1.4rem;
+            color: var(--accent);
         }
 
         .card p {
@@ -254,6 +297,14 @@
             position: relative;
             cursor: pointer;
             overflow: hidden;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 12px;
+            transition: var(--transition);
+        }
+
+        .model-card:hover {
+            border-color: var(--accent);
         }
 
         .model-img {
@@ -261,7 +312,7 @@
             height: 450px;
             background-size: cover;
             background-position: center;
-            background-color: #eee;
+            background-color: #222;
             transition: var(--transition);
         }
 
@@ -272,6 +323,7 @@
         .model-info {
             margin-top: 15px;
             text-align: center;
+            padding-bottom: 5px;
         }
 
         .model-info span {
@@ -279,6 +331,7 @@
             font-size: 1.5rem;
             font-weight: bold;
             text-transform: uppercase;
+            color: var(--accent);
         }
 
         /* ==========================================================================
@@ -287,9 +340,10 @@
         .form-wrapper {
             max-width: 700px;
             margin: 0 auto;
-            background: var(--white);
+            background: var(--card-bg);
             padding: 40px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
         .form-subtitle {
@@ -299,15 +353,19 @@
         }
 
         .model-requirements {
-            background: var(--light-bg);
+            background: var(--primary);
             padding: 24px;
             margin-bottom: 35px;
-            border-left: 2px solid var(--accent);
+            border-left: 3px solid var(--accent);
+            border-top: 1px solid var(--border-color);
+            border-right: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .model-requirements h3 {
             font-size: 1.1rem;
             margin-bottom: 12px;
+            color: var(--accent);
         }
 
         .req-list {
@@ -317,7 +375,11 @@
         .req-list li {
             font-size: 0.9rem;
             margin-bottom: 6px;
-            color: #444;
+            color: var(--text-light);
+        }
+
+        .req-list strong {
+            color: var(--white);
         }
 
         /* Form Controls */
@@ -346,7 +408,9 @@
         input[type="url"] {
             width: 100%;
             padding: 12px;
-            border: 1px solid #ddd;
+            background: var(--primary);
+            border: 1px solid var(--border-color);
+            color: var(--white);
             font-family: 'Inter', sans-serif;
             font-size: 0.9rem;
             outline: none;
@@ -354,7 +418,8 @@
         }
 
         input:focus {
-            border-color: var(--primary);
+            border-color: var(--accent);
+            box-shadow: 0 0 8px rgba(255, 153, 0, 0.2);
         }
 
         label {
@@ -364,13 +429,14 @@
             letter-spacing: 1px;
             margin-bottom: 8px;
             font-weight: 600;
+            color: var(--accent);
         }
 
         .submit-btn {
             width: 100%;
-            background: var(--primary);
-            color: var(--white);
-            border: none;
+            background: var(--accent);
+            color: var(--primary);
+            border: 1px solid var(--accent);
             padding: 15px;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -380,20 +446,23 @@
         }
 
         .submit-btn:hover {
-            background: var(--accent);
+            background: var(--accent-hover);
+            border-color: var(--accent-hover);
+            color: var(--primary);
         }
 
         /* ==========================================================================
            7. MODALS & OVERLAYS
            ========================================================================== */
-        .modal, .success-overlay {
+        .modal,
+        .success-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(5px);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
             z-index: 2000;
             display: none;
             align-items: center;
@@ -401,11 +470,13 @@
         }
 
         .modal-content {
-            background: var(--white);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             width: 90%;
             max-width: 750px;
             position: relative;
             animation: fadeIn 0.4s ease;
+            color: var(--white);
         }
 
         .close-modal {
@@ -415,6 +486,7 @@
             font-size: 2rem;
             cursor: pointer;
             z-index: 10;
+            color: var(--accent);
         }
 
         .modal-body {
@@ -426,7 +498,7 @@
             height: 450px;
             background-size: cover;
             background-position: center;
-            background-color: #eee;
+            background-color: #222;
         }
 
         .modal-text {
@@ -439,18 +511,24 @@
         .modal-text h2 {
             font-size: 2rem;
             margin-bottom: 15px;
+            color: var(--accent);
         }
 
         .modal-text p {
             margin-bottom: 10px;
             font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .modal-text strong {
+            color: var(--white);
         }
 
         .modal-text hr {
             margin: 20px 0;
             border: 0;
             height: 1px;
-            background: #eee;
+            background: var(--border-color);
         }
 
         .bio {
@@ -460,7 +538,8 @@
 
         /* Success Overlay */
         .success-content {
-            background: var(--white);
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             padding: 40px;
             text-align: center;
             max-width: 400px;
@@ -471,8 +550,9 @@
         .success-icon {
             width: 60px;
             height: 60px;
-            background: #e6f4ea;
-            color: #137333;
+            background: rgba(255, 153, 0, 0.15);
+            color: var(--accent);
+            border: 1px solid var(--accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -483,6 +563,7 @@
 
         .success-content h2 {
             margin-bottom: 10px;
+            color: var(--accent);
         }
 
         .success-content p {
@@ -492,13 +573,19 @@
         }
 
         .success-content button {
-            background: var(--primary);
-            color: var(--white);
+            background: var(--accent);
+            color: var(--primary);
             border: none;
             padding: 10px 24px;
             cursor: pointer;
             text-transform: uppercase;
             font-size: 0.85rem;
+            font-weight: bold;
+            transition: var(--transition);
+        }
+
+        .success-content button:hover {
+            background: var(--accent-hover);
         }
 
         /* Terms Modal Specific Layout */
@@ -516,11 +603,18 @@
 
         .terms-scroll-box h2 {
             margin-bottom: 10px;
+            color: var(--accent);
         }
 
         .terms-scroll-box h3 {
             margin: 20px 0 8px 0;
             font-size: 1.1rem;
+            color: var(--accent);
+        }
+
+        .terms-scroll-box p,
+        .terms-scroll-box li {
+            color: var(--text-light);
         }
 
         .terms-scroll-box ul {
@@ -530,8 +624,8 @@
 
         .terms-footer {
             padding: 20px 40px;
-            border-top: 1px solid #eee;
-            background: var(--light-bg);
+            border-top: 1px solid var(--border-color);
+            background: var(--primary);
         }
 
         /* ==========================================================================
@@ -541,6 +635,7 @@
             background: var(--primary);
             color: var(--white);
             padding: 60px 24px;
+            border-top: 1px solid var(--border-color);
         }
 
         .footer-content {
@@ -556,11 +651,12 @@
         .footer-logo {
             font-size: 2rem;
             font-weight: bold;
+            color: var(--accent);
         }
 
         .footer p {
             font-size: 0.85rem;
-            color: #999;
+            color: var(--text-light);
         }
 
         .social-links {
@@ -572,7 +668,7 @@
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #ccc;
+            color: var(--white);
         }
 
         .social-links a:hover {
@@ -592,8 +688,14 @@
         .newsletter-form input {
             flex: 1;
             padding: 12px;
-            border: none;
+            border: 1px solid var(--border-color);
+            background: var(--dark-bg);
+            color: var(--white);
             outline: none;
+        }
+
+        .newsletter-form input:focus {
+            border-color: var(--accent);
         }
 
         .newsletter-form button {
@@ -604,6 +706,11 @@
             font-weight: bold;
             text-transform: uppercase;
             cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-form button:hover {
+            background: var(--accent-hover);
         }
 
         /* ==========================================================================
@@ -613,68 +720,87 @@
             .hide-mobile {
                 display: none;
             }
-            
+
             .hamburger {
                 display: flex;
             }
-            
+
             .nav-links {
                 position: fixed;
                 left: -100%;
                 top: 75px;
                 flex-direction: column;
-                background-color: var(--white);
+                background-color: var(--primary);
                 width: 100%;
                 text-align: center;
                 gap: 0;
                 transition: 0.3s;
-                box-shadow: 0 10px 10px rgba(0,0,0,0.05);
+                border-bottom: 1px solid var(--border-color);
             }
-            
+
             .nav-links.active {
                 left: 0;
             }
-            
+
             .nav-links li {
                 width: 100%;
             }
-            
+
             .nav-links a {
                 display: block;
                 padding: 20px;
-                border-bottom: 1px solid #eee;
+                border-bottom: 1px solid var(--border-color);
             }
 
-            .hamburger.active .bar:nth-child(2) { opacity: 0; }
-            .hamburger.active .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-            .hamburger.active .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
 
-            .hero-content h1 { font-size: 2.3rem; }
-            
-            .form-group-row, .measurements-grid {
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+
+            .hero-content h1 {
+                font-size: 2.3rem;
+            }
+
+            .form-group-row,
+            .measurements-grid {
                 grid-template-columns: 1fr;
                 gap: 15px;
             }
-            
+
             .modal-body {
                 grid-template-columns: 1fr;
             }
-            
+
             .modal-img-large {
                 height: 250px;
             }
-            
+
             .modal-text {
                 padding: 24px;
             }
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
+
 <body>
 
     <div id="successOverlay" class="success-overlay">
@@ -688,17 +814,18 @@
 
     <nav class="navbar">
         <div class="logo">PFN</div>
-        
+
         <ul class="nav-links nav-menu">
             <li><a href="#">Home</a></li>
             <li><a href="#magazine">Editorials</a></li>
             <li><a href="#gallery">Our Faces</a></li>
             <li><a href="#apply">Apply</a></li>
         </ul>
-    
+
         <div class="nav-actions">
-            <button class="cta-btn hide-mobile" onclick="document.getElementById('apply').scrollIntoView()">Join Roster</button>
-            
+            <button class="cta-btn hide-mobile" onclick="document.getElementById('apply').scrollIntoView()">Join
+                Roster</button>
+
             <div class="hamburger" id="hamburger">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -719,17 +846,20 @@
         <h2 class="section-title">Latest Editorials</h2>
         <div class="grid">
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1550246140-5119ae4790b8?q=80&w=1000&auto=format&fit=crop" alt="Current Runway Trend" class="card-img">
+                <img src="https://images.unsplash.com/photo-1550246140-5119ae4790b8?q=80&w=1000&auto=format&fit=crop"
+                    alt="Current Runway Trend" class="card-img">
                 <h3>Bold & Modern Streetwear</h3>
                 <p>Your style is your loudest statement.</p>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b" alt="Fashion Editorial" class="card-img">
+                <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b" alt="Fashion Editorial"
+                    class="card-img">
                 <h3>Fashion & Lifestyle</h3>
                 <p>You can't outlook the shine.</p>
             </div>
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1000&auto=format&fit=crop" alt="Studio Portrait" class="card-img">
+                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?q=80&w=1000&auto=format&fit=crop"
+                    alt="Studio Portrait" class="card-img">
                 <h3>Minimalism & Pose</h3>
                 <p>The art of the high-fashion editorial shoot.</p>
             </div>
@@ -741,17 +871,17 @@
     <section id="gallery" class="container">
         <h2 class="section-title">Winners Image</h2>
         <div class="model-grid">
-            
+
             <div class="model-card" onclick="openPortfolio('King', '175cm', 'Nigeria', 'sasha-large.jpg')">
                 <div class="model-img" style="background-image: url('Prestige face Nigeria winner.png');"></div>
                 <div class="model-info"><span>King</span></div>
             </div>
-    
+
             <div class="model-card" onclick="openPortfolio('Queen', '188cm', 'Nigeria', 'jordan-large.jpg')">
                 <div class="model-img" style="background-image: url('Prestige face Nigeria winner.png');"></div>
                 <div class="model-info"><span>Queen</span></div>
             </div>
-    
+
             <div class="model-card" onclick="openPortfolio('Runner up', '188cm', 'Nigeria', 'jordan-large.jpg')">
                 <div class="model-img" style="background-image: url('Prestige face Nigeria winner.png');"></div>
                 <div class="model-info"><span>Runner up</span></div>
@@ -774,30 +904,32 @@
                     <li><strong>Photos:</strong> Clear digitals (no makeup, no filters)</li>
                 </ul>
             </div>
-            
+
             <form action="https://formspree.io/f/mkooqeqb" method="POST" id="model-form">
                 <div class="form-group-row">
                     <input type="text" name="first_name" placeholder="First Name" required>
                     <input type="text" name="last_name" placeholder="Last Name" required>
                 </div>
-            
+
                 <div class="form-group-row">
                     <input type="email" name="email" placeholder="Email Address" required>
                     <input type="tel" name="phone" placeholder="Phone Number" required>
                 </div>
-            
+
                 <div class="measurements-grid">
-                    <div class="m-item"><label>Height (cm)</label><input type="number" name="height" placeholder="175"></div>
+                    <div class="m-item"><label>Height (cm)</label><input type="number" name="height" placeholder="175">
+                    </div>
                     <div class="m-item"><label>Bust</label><input type="number" name="bust" placeholder="86"></div>
                     <div class="m-item"><label>Waist</label><input type="number" name="waist" placeholder="60"></div>
                     <div class="m-item"><label>Hips</label><input type="number" name="hips" placeholder="89"></div>
                 </div>
-            
+
                 <div class="form-group">
                     <label>Portfolio Link (Google Drive or Dropbox)</label>
-                    <input type="url" name="portfolio_link" placeholder="https://..." style="width:100%; margin-top:10px; padding:12px;">
+                    <input type="url" name="portfolio_link" placeholder="https://..."
+                        style="width:100%; margin-top:10px; padding:12px;">
                 </div>
-            
+
                 <button type="submit" class="submit-btn">Send Application</button>
             </form>
         </div>
@@ -813,19 +945,21 @@
                     <p><strong>Height:</strong> <span id="modalHeight"></span></p>
                     <p><strong>Location:</strong> <span id="modalLoc"></span></p>
                     <hr>
-                    <p class="bio">Representing the next generation of editorial talent. Specialized in high-fashion and runway.</p>
+                    <p class="bio">Representing the next generation of editorial talent. Specialized in high-fashion and
+                        runway.</p>
                     <button class="cta-btn">Book Model</button>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-logo">PFN</div>
             <p>© 2026 Prestige Face Nigeria. All Rights Reserved.</p>
             <div class="social-links">
-                <a href="https://www.instagram.com/prestigefaceng?igsh=MWJmajRianQxbjFodw==" aria-label="Instagram">Instagram</a>
+                <a href="https://www.instagram.com/prestigefaceng?igsh=MWJmajRianQxbjFodw=="
+                    aria-label="Instagram">Instagram</a>
                 <a href="#" aria-label="Twitter">Twitter</a>
                 <a href="#" aria-label="Facebook">Facebook</a>
             </div>
@@ -845,9 +979,10 @@
                 <h2>TERMS AND CONDITIONS</h2>
                 <p><strong>Prestige Face Nigeria (Online Competition)</strong></p>
                 <hr>
-                
+
                 <h3>1. Introduction</h3>
-                <p>By registering for the Prestige Face Nigeria, you agree to comply with and be bound by these Terms and Conditions. Please read them carefully before participating.</p>
+                <p>By registering for the Prestige Face Nigeria, you agree to comply with and be bound by these Terms
+                    and Conditions. Please read them carefully before participating.</p>
 
                 <h3>2. Eligibility</h3>
                 <ul>
@@ -857,7 +992,8 @@
                 </ul>
 
                 <h3>3. Competition Structure</h3>
-                <p>The competition will be conducted in multiple stages, including photo submissions, video challenges, public voting, and judges’ evaluation.</p>
+                <p>The competition will be conducted in multiple stages, including photo submissions, video challenges,
+                    public voting, and judges’ evaluation.</p>
 
                 <h3>4. Submission Guidelines</h3>
                 <p>All photos/videos must be clear. Edited or inappropriate content lead to disqualification.</p>
@@ -866,14 +1002,15 @@
                 <p>Any form of vote manipulation (bots/fake accounts) will result in immediate disqualification.</p>
 
                 <h3>6. Use of Content</h3>
-                <p>Participants grant Prestige Face Nigeria the right to use submitted content for promotional purposes without additional compensation.</p>
+                <p>Participants grant Prestige Face Nigeria the right to use submitted content for promotional purposes
+                    without additional compensation.</p>
 
                 <h3>7. Disqualification</h3>
                 <p>False information or inappropriate behavior will result in removal from the competition.</p>
 
                 <hr>
                 <p><em>By clicking "I Agree", you acknowledge that you have read and understood these terms.</em></p>
-            </div> 
+            </div>
             <div class="terms-footer">
                 <button class="submit-btn" onclick="acceptTerms()">I Agree & Enter Site</button>
             </div>
@@ -898,9 +1035,6 @@
             initFormSubmissions();
         });
 
-        /**
-         * Handles Mobile Menu Interaction Elements
-         */
         function initMobileNav() {
             const hamburger = document.getElementById("hamburger");
             const navMenu = document.querySelector(".nav-menu");
@@ -912,7 +1046,6 @@
                     navMenu.classList.toggle("active");
                 });
 
-                // Close mobile view menu upon picking target anchor section links
                 navLinks.forEach(link => {
                     link.addEventListener("click", () => {
                         hamburger.classList.remove("active");
@@ -922,28 +1055,22 @@
             }
         }
 
-        /**
-         * Gatekeeper Action: Approves terms and releases main application screen view.
-         */
         function acceptTerms() {
             localStorage.setItem("pfn_terms_accepted", "true");
             const termsModal = document.getElementById("termsModal");
             if (termsModal) {
                 termsModal.style.display = "none";
-                document.body.style.overflow = "auto"; // Restore scroll functionality
+                document.body.style.overflow = "auto";
             }
         }
 
-        /**
-         * Dynamically populates and displays custom portfolio viewport elements.
-         */
         function openPortfolio(name, height, location, imageFileName) {
             const modal = document.getElementById("portfolioModal");
-            
+
             document.getElementById("modalName").innerText = name;
             document.getElementById("modalHeight").innerText = height;
             document.getElementById("modalLoc").innerText = location;
-            
+
             const modalImgElement = document.getElementById("modalImg");
             modalImgElement.style.backgroundImage = `url('Prestige face Nigeria winner.png')`;
 
@@ -953,9 +1080,6 @@
             }
         }
 
-        /**
-         * Closes the active model profile overview modal framework elements.
-         */
         function closePortfolio() {
             const modal = document.getElementById("portfolioModal");
             if (modal) {
@@ -964,9 +1088,13 @@
             }
         }
 
-        /**
-         * Validates external Form submissions asynchronously using Fetch API integration workflows.
-         */
+        function closeSuccess() {
+            const overlay = document.getElementById("successOverlay");
+            if (overlay) {
+                overlay.style.display = "none";
+            }
+        }
+
         function initFormSubmissions() {
             const mainForm = document.getElementById("model-form");
             const newsletterForm = document.querySelector(".newsletter-form");
@@ -986,13 +1114,13 @@
 
                         if (response.ok) {
                             mainForm.reset();
-                            document.getElementById("successOverlay").style.display = "flex";
-                            document.body.style.overflow = "hidden";
+                            const overlay = document.getElementById("successOverlay");
+                            if (overlay) overlay.style.display = "flex";
                         } else {
-                            alert("Submission error. Please verify requirements data properties and re-try.");
+                            alert("There was an issue submitting your application. Please try again.");
                         }
-                    } catch (err) {
-                        alert("Network connectivity issue. Failed to sync form details data payload.");
+                    } catch (error) {
+                        alert("Network error. Please try again later.");
                     }
                 });
             }
@@ -1000,7 +1128,7 @@
             if (newsletterForm) {
                 newsletterForm.addEventListener("submit", async (e) => {
                     e.preventDefault();
-                    const targetUrl = newsletterForm.getAttribute("action");
+                    const targetUrl = newsletterForm.getAttribute("action") || "https://formspree.io/f/mkooqeqb";
                     const formData = new FormData(newsletterForm);
 
                     try {
@@ -1011,31 +1139,18 @@
                         });
 
                         if (response.ok) {
-                            alert("Thank you for subscribing to our fashion editorial news update streams!");
                             newsletterForm.reset();
+                            alert("Thank you for subscribing!");
+                        } else {
+                            alert("Subscription error. Please try again.");
                         }
-                    } catch (err) {
-                        console.error("Newsletter submission failure context logged safely.");
+                    } catch (error) {
+                        alert("Network error. Please try again later.");
                     }
                 });
             }
         }
-
-        /**
-         * Success modal close event dispatcher logic
-         */
-        function closeSuccess() {
-            document.getElementById("successOverlay").style.display = "none";
-            document.body.style.overflow = "auto";
-        }
-
-        // Window global close click listener mapping hooks for modal bounds containment checks
-        window.onclick = function(event) {
-            const portfolioModal = document.getElementById("portfolioModal");
-            if (event.target === portfolioModal) {
-                closePortfolio();
-            }
-        };
     </script>
 </body>
+
 </html>
