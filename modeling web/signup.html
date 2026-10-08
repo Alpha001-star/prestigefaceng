@@ -1,147 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up | Prestige Face Nigeria</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    <style>
-        /* ==========================================================================
-           COLOR PALETTE & DESIGN SYSTEM (Matches Main Site Architecture)
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up | Prestige Face Nigeria</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ==========================================================================
+           COLOR PALETTE & DESIGN SYSTEM (Golden Orange & Black Theme)
            ========================================================================== */
-        :root {
-            --primary: #111111;
-            --accent: #c5a880; /* High-Fashion Gold */
-            --light-bg: #f9f9f9;
-            --text-dark: #222222;
-            --text-light: #777777;
-            --white: #ffffff;
-            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
+    :root {
+      --primary: #E67E22;
+      /* Vibrant Golden Orange */
+      --primary-dark: #D35400;
+      /* Deep Burned Golden Orange */
+      --black: #0A0A0B;
+      /* Pure Obsidian Black */
+      --dark: #121214;
+      /* Off-Black Charcoal */
+      --light-bg: #FAF8F5;
+      /* Warm Ivory Light Background */
+      --text-dark: #1A1A1A;
+      --text-light: #6E6E73;
+      /* Editorial Slate Gray */
+      --white: #ffffff;
+      --border: rgba(230, 126, 34, 0.2);
+      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    }
 
-        * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-            font-family: 'Inter', sans-serif; 
-        }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
 
-        body {
-            background-color: var(--light-bg);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+    body {
+      background-color: var(--light-bg);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
 
-        .auth-container {
-            width: 100%;
-            max-width: 450px;
-            background: var(--white);
-            border: 1px solid #e0e0e0;
-            padding: 50px 40px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-        }
+    .auth-container {
+      width: 100%;
+      max-width: 450px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 50px 40px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
+    }
 
-        .signup-card h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
-            color: var(--primary);
-            margin-bottom: 8px;
-            text-align: center;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+    .signup-card h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--black);
+      margin-bottom: 8px;
+      text-align: center;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
 
-        .subtitle {
-            color: var(--text-light);
-            margin-bottom: 35px;
-            font-size: 0.9rem;
-            text-align: center;
-            font-weight: 300;
-        }
+    .subtitle {
+      color: var(--text-light);
+      margin-bottom: 35px;
+      font-size: 0.9rem;
+      text-align: center;
+      font-weight: 300;
+    }
 
-        .input-group { 
-            position: relative; 
-            margin-bottom: 20px; 
-        }
+    .input-group {
+      position: relative;
+      margin-bottom: 20px;
+    }
 
-        .input-group i {
-            position: absolute;
-            left: 18px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #aaa;
-            transition: var(--transition);
-        }
+    .input-group i {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-light);
+      transition: var(--transition);
+    }
 
-        input {
-            width: 100%;
-            padding: 14px 16px 14px 52px;
-            background: var(--white);
-            border: 1px solid #ddd;
-            color: var(--text-dark);
-            font-size: 0.9rem;
-            outline: none;
-            transition: var(--transition);
-        }
+    input {
+      width: 100%;
+      padding: 14px 16px 14px 52px;
+      background: var(--white);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      color: var(--text-dark);
+      font-size: 0.9rem;
+      outline: none;
+      transition: var(--transition);
+    }
 
-        input:focus { 
-            border-color: var(--primary); 
-        }
-        
-        input:focus + i { 
-            color: var(--accent); 
-        }
+    input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.12);
+    }
 
-        .btn-signup {
-            width: 100%;
-            padding: 15px;
-            background: var(--primary);
-            color: var(--white);
-            border: none;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-top: 10px;
-        }
+    input:focus+i {
+      color: var(--primary);
+    }
 
-        .btn-signup:hover { 
-            background: var(--accent);
-        }
+    .btn-signup {
+      width: 100%;
+      padding: 16px;
+      background: var(--primary);
+      color: var(--white);
+      border: 1px solid var(--primary);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: var(--transition);
+      margin-top: 10px;
+    }
 
-        .login-link { 
-            margin-top: 25px; 
-            text-align: center; 
-            font-size: 0.85rem; 
-            color: var(--text-light); 
-        }
-        
-        .login-link a { 
-            color: var(--text-dark); 
-            text-decoration: none; 
-            font-weight: 600;
-            transition: var(--transition);
-        }
-        
-        .login-link a:hover { 
-            color: var(--accent);
-        }
+    .btn-signup:hover {
+      background: var(--primary-dark);
+      border-color: var(--primary-dark);
+      transform: translateY(-1px);
+    }
 
-        footer { 
-            margin-top: 40px; 
-            text-align: center; 
-            font-size: 0.75rem; 
-            color: var(--text-light); 
-            letter-spacing: 2px;
-        }
-    </style>
+    .login-link {
+      margin-top: 25px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    .login-link a {
+      color: var(--text-dark);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .login-link a:hover {
+      color: var(--primary);
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--primary-dark);
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+  </style>
 </head>
+
 <body>
 
   <main class="auth-container">
@@ -151,20 +169,20 @@
 
       <form id="signupForm">
         <div class="input-group">
-          <i class="fas fa-user"></i>
           <input type="text" id="signup-name" placeholder="Full Name" required>
+          <i class="fas fa-user"></i>
         </div>
         <div class="input-group">
-          <i class="fas fa-envelope"></i>
           <input type="email" id="signup-email" placeholder="Email Address" required>
+          <i class="fas fa-envelope"></i>
         </div>
         <div class="input-group">
-          <i class="fas fa-lock"></i>
           <input type="password" id="signup-password" placeholder="Create Password" required>
+          <i class="fas fa-lock"></i>
         </div>
         <div class="input-group">
-          <i class="fas fa-shield-alt"></i>
           <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+          <i class="fas fa-shield-alt"></i>
         </div>
         <button type="submit" class="btn-signup" id="submitBtn">Get Started</button>
       </form>
@@ -180,26 +198,26 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <script>
     const SUPABASE_URL = 'https://gykkocmrjfjocmwjwfst.supabase.co';
-    const SUPABASE_KEY = 'sb_publishable_WSvJdtO4jRhbXw4PZexD0w_gBEiCkFT'; 
+    const SUPABASE_KEY = 'sb_publishable_WSvJdtO4jRhbXw4PZexD0w_gBEiCkFT';
     const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-  
+
     document.getElementById('signupForm').addEventListener('submit', async (e) => {
       e.preventDefault();
-      
+
       const name = document.getElementById('signup-name').value;
       const email = document.getElementById('signup-email').value;
       const password = document.getElementById('signup-password').value;
       const confirmPassword = document.getElementById('confirm-password').value;
-  
+
       if (password !== confirmPassword) {
         alert("Passwords do not match!");
         return;
       }
-  
+
       const submitBtn = document.getElementById('submitBtn');
       submitBtn.innerText = "Creating Account...";
       submitBtn.disabled = true;
-  
+
       const { data, error } = await supabaseClient.auth.signUp({
         email: email,
         password: password,
@@ -209,22 +227,22 @@
           }
         }
       });
-  
+
       if (error) {
         alert("Error: " + error.message);
       } else {
         if (data.user && data.user.identities && data.user.identities.length === 0) {
-            alert("This email is already registered.");
+          alert("This email is already registered.");
         } else {
-            // Updated alert and optional redirect
-            alert("Account created successfully!");
-            window.location.href = "login.html"; // Redirects user directly to login page
+          alert("Account created successfully!");
+          window.location.href = "login.html";
         }
       }
-      
+
       submitBtn.innerText = "Get Started";
       submitBtn.disabled = false;
     });
   </script>
 </body>
+
 </html>
