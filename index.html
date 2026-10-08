@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         /* Reset & Base */
         * {
@@ -16,68 +19,80 @@
             box-sizing: border-box;
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
-        
+
         :root {
-            /* LUXURY PLATINUM & SILVER PALETTE */
-            --primary: #CCCCCC;        /* Polished Silver Accent */
-            --primary-dark: #A6A6A6;   /* Deep Platinum */
-            --black: #0A0A0B;          /* Pure Obsidian Black */
-            --dark: #121214;           /* Off-Black Eerie Charcoal */
-            --light: #F8F9FA;          /* Matte Crisp White */
-            --silver-bg: #EFEFEF;      /* Soft Light Gray for UI Blocks */
-            --gray: #6E6E73;           /* Editorial Slate Gray for Prose */
-            --border: rgba(255, 255, 255, 0.1);
+            /* GOLDEN ORANGE & BLACK PALETTE */
+            --primary: #E67E22;
+            /* Vibrant Golden Orange */
+            --primary-dark: #D35400;
+            /* Deep Burned Golden Orange */
+            --primary-light: #F39C12;
+            /* Bright Amber Accent */
+            --black: #0A0A0B;
+            /* Pure Obsidian Black */
+            --dark: #121214;
+            /* Off-Black Charcoal */
+            --light: #FAF8F5;
+            /* Warm Ivory Light Background */
+            --card-bg: #FFFFFF;
+            /* Crisp White for Cards */
+            --gray: #6E6E73;
+            /* Editorial Slate Gray */
+            --border: rgba(230, 126, 34, 0.2);
             --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        
+
         html {
             scroll-behavior: smooth;
         }
-        
+
         body {
             background-color: var(--light);
             color: var(--black);
             overflow-x: hidden;
             letter-spacing: -0.01em;
         }
-        
+
         .container {
             width: 100%;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 24px;
         }
-        
+
         /* Typography */
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
             line-height: 1.15;
             color: var(--black);
         }
-        
+
         h1 {
             font-size: 4.5rem;
             letter-spacing: -1px;
         }
-        
+
         h2 {
             font-size: 3.5rem;
             margin-bottom: 2rem;
             letter-spacing: -0.5px;
         }
-        
+
         h3 {
             font-size: 2rem;
             font-weight: 500;
         }
-        
+
         p {
             line-height: 1.75;
             color: var(--gray);
             font-size: 1.05rem;
         }
-        
+
         /* Buttons */
         .btn {
             display: inline-block;
@@ -93,24 +108,26 @@
             transition: var(--transition);
             cursor: pointer;
         }
-        
+
         .btn:hover {
-            background-color: var(--black);
+            background-color: var(--primary);
+            border-color: var(--primary);
             color: white !important;
             transform: translateY(-2px);
         }
-        
+
         .btn-primary {
-            background-color: var(--black);
+            background-color: var(--primary);
             color: white;
-            border: 1px solid var(--black);
+            border: 1px solid var(--primary);
         }
 
         .btn-primary:hover {
-            background-color: transparent;
-            color: var(--black) !important;
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            color: white !important;
         }
-        
+
         /* Header & Navigation */
         header {
             position: fixed;
@@ -119,23 +136,23 @@
             z-index: 1000;
             padding: 24px 0;
             transition: var(--transition);
-            background-color: rgba(248, 249, 250, 0.85);
+            background-color: rgba(250, 248, 245, 0.9);
             backdrop-filter: blur(20px);
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
-        
+
         header.scrolled {
             padding: 16px 0;
-            background-color: rgba(248, 249, 250, 0.95);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.02);
+            background-color: rgba(250, 248, 245, 0.98);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
-        
+
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             font-family: 'Cormorant Garamond', serif;
             font-size: 2rem;
@@ -144,19 +161,19 @@
             letter-spacing: 3px;
             text-decoration: none;
         }
-        
+
         .logo span {
-            color: var(--gray);
-            font-weight: 300;
+            color: var(--primary);
+            font-weight: 700;
         }
-        
+
         .nav-links {
             display: flex;
             list-style: none;
             gap: 40px;
             align-items: center;
         }
-        
+
         .nav-links a {
             text-decoration: none;
             color: var(--black);
@@ -167,11 +184,11 @@
             transition: var(--transition);
             padding: 5px 0;
         }
-        
+
         .nav-links a:hover {
-            color: var(--gray);
+            color: var(--primary);
         }
-        
+
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -180,18 +197,18 @@
             color: var(--black);
             cursor: pointer;
         }
-        
+
         /* Hero Section */
         .hero {
             height: 100vh;
             position: relative;
             display: flex;
             align-items: center;
-            background: linear-gradient(to right, rgba(10, 10, 11, 0.9) 30%, rgba(10, 10, 11, 0.4) 100%);
+            background: linear-gradient(to right, rgba(10, 10, 11, 0.92) 35%, rgba(10, 10, 11, 0.5) 100%);
             color: white;
             overflow: hidden;
         }
-        
+
         .hero-video {
             position: absolute;
             top: 0;
@@ -200,15 +217,15 @@
             height: 100%;
             object-fit: cover;
             z-index: -1;
-            filter: grayscale(100%) brightness(0.6);
+            filter: grayscale(80%) brightness(0.5);
         }
-        
+
         .hero-content {
             max-width: 750px;
             position: relative;
             z-index: 2;
         }
-        
+
         .hero h1 {
             font-size: 5.5rem;
             margin-bottom: 2rem;
@@ -216,27 +233,38 @@
             color: white;
             font-weight: 500;
         }
-        
+
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 3rem;
-            color: rgba(255, 255, 255, 0.75);
+            color: rgba(255, 255, 255, 0.85);
             max-width: 580px;
             font-weight: 300;
         }
-        
+
+        .hero-buttons .btn-outline {
+            margin-left: 20px;
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .hero-buttons .btn-outline:hover {
+            background-color: var(--primary);
+            color: white !important;
+        }
+
         /* Competition Info */
         .info-section {
             padding: 140px 0;
             background-color: white;
         }
-        
+
         .section-header {
             text-align: center;
             max-width: 600px;
             margin: 0 auto 6rem;
         }
-        
+
         .section-header h2 {
             margin-bottom: 1rem;
         }
@@ -245,40 +273,45 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.5rem;
             font-style: italic;
-            color: var(--gray);
+            color: var(--primary-dark);
         }
-        
+
         .info-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 32px;
         }
-        
+
         .info-card {
             text-align: left;
             padding: 48px 36px;
             background-color: var(--light);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(230, 126, 34, 0.15);
             transition: var(--transition);
         }
-        
+
         .info-card:hover {
             background-color: var(--black);
-            border-color: var(--black);
+            border-color: var(--primary);
             transform: translateY(-4px);
         }
 
-        .info-card:hover h3, .info-card:hover p, .info-card:hover i {
+        .info-card:hover h3,
+        .info-card:hover p {
             color: white;
         }
-        
+
+        .info-card:hover i {
+            color: var(--primary);
+        }
+
         .info-card i {
             font-size: 2rem;
-            color: var(--black);
+            color: var(--primary);
             margin-bottom: 32px;
             transition: var(--transition);
         }
-        
+
         .info-card h3 {
             margin-bottom: 16px;
             transition: var(--transition);
@@ -288,38 +321,38 @@
             font-size: 1rem;
             transition: var(--transition);
         }
-        
+
         /* Countdown Timer */
         .countdown-section {
             padding: 140px 0;
-            background: linear-gradient(rgba(10, 10, 11, 0.85), rgba(10, 10, 11, 0.95)), url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background: linear-gradient(rgba(10, 10, 11, 0.88), rgba(10, 10, 11, 0.95)), url('https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             color: white;
             text-align: center;
         }
-        
+
         .countdown-section h2 {
             color: white;
             margin-bottom: 1rem;
         }
 
         .countdown-section p {
-            color: rgba(255, 255, 255, 0.6);
+            color: var(--primary-light);
             margin-bottom: 4rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             font-size: 0.85rem;
         }
-        
+
         .countdown {
             display: flex;
             justify-content: center;
             gap: 24px;
             margin-bottom: 4rem;
         }
-        
+
         .countdown-item {
             background-color: rgba(255, 255, 255, 0.03);
             padding: 32px 24px;
@@ -327,60 +360,61 @@
             backdrop-filter: blur(10px);
             border: 1px solid var(--border);
         }
-        
+
         .countdown-number {
             font-size: 4rem;
             font-weight: 400;
             font-family: 'Cormorant Garamond', serif;
-            color: white;
+            color: var(--primary);
             line-height: 1;
         }
-        
+
         .countdown-label {
             font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-top: 12px;
-            color: rgba(255, 255, 255, 0.4);
+            color: rgba(255, 255, 255, 0.6);
         }
 
         .countdown-section .btn {
-            border-color: white;
+            border-color: var(--primary);
             color: white;
+            background-color: var(--primary);
         }
 
         .countdown-section .btn:hover {
-            background-color: white;
-            color: var(--black) !important;
+            background-color: var(--primary-dark);
+            border-color: var(--primary-dark);
+            color: white !important;
         }
-        
+
         /* Sponsors Section */
         .judges-section {
             padding: 140px 0;
             background-color: white;
         }
-        
+
         .flyer-container {
             max-width: 750px;
             margin: 0 auto;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.06);
+            box-shadow: 0 30px 60px rgba(230, 126, 34, 0.1);
             overflow: hidden;
-            border: 1px solid rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(230, 126, 34, 0.2);
             transition: var(--transition);
         }
-        
+
         .sponsor-flyer {
             width: 100%;
             height: auto;
             display: block;
             object-fit: cover;
-            filter: grayscale(20%);
             transition: var(--transition);
         }
 
-        .flyer-container:hover .sponsor-flyer {
+        .flyer-container:hover {
             transform: scale(1.01);
-            filter: grayscale(0%);
+            border-color: var(--primary);
         }
 
         /* Application CTA */
@@ -388,21 +422,21 @@
             padding: 140px 0;
             background-color: var(--light);
         }
-        
+
         .cta-box {
             max-width: 850px;
             margin: 0 auto;
             padding: 80px 60px;
             background-color: white;
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(230, 126, 34, 0.15);
             text-align: center;
         }
-        
+
         .cta-box h2 {
             margin-bottom: 1.5rem;
         }
-        
+
         .cta-box p {
             margin-bottom: 3rem;
             font-size: 1.1rem;
@@ -410,7 +444,7 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         .requirements {
             max-width: 500px;
             margin: 0 auto;
@@ -420,7 +454,7 @@
             font-size: 1.5rem;
             margin-bottom: 24px;
             text-align: left;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(230, 126, 34, 0.2);
             padding-bottom: 8px;
         }
 
@@ -439,25 +473,26 @@
         }
 
         .requirements li i {
-            color: var(--black);
+            color: var(--primary);
             margin-right: 14px;
             font-size: 0.85rem;
         }
-        
+
         /* Footer */
         footer {
             background-color: var(--black);
             color: white;
             padding: 100px 0 40px;
+            border-top: 3px solid var(--primary);
         }
-        
+
         .footer-content {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr;
             gap: 64px;
             margin-bottom: 64px;
         }
-        
+
         .footer-logo {
             font-family: 'Cormorant Garamond', serif;
             font-size: 2.2rem;
@@ -466,49 +501,50 @@
             letter-spacing: 3px;
             margin-bottom: 24px;
         }
-        
+
         .footer-logo span {
-            color: var(--gray);
+            color: var(--primary);
         }
-        
+
         .footer-about p {
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.6);
             margin-bottom: 32px;
             max-width: 320px;
             font-size: 0.95rem;
         }
-        
-        .footer-links h4, .footer-contact h4 {
+
+        .footer-links h4,
+        .footer-contact h4 {
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 28px;
-            color: white;
+            color: var(--primary-light);
             font-family: 'Plus Jakarta Sans', sans-serif;
             font-weight: 600;
         }
-        
+
         .footer-links ul {
             list-style: none;
         }
-        
+
         .footer-links li {
             margin-bottom: 14px;
         }
-        
+
         .footer-links a {
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.6);
             text-decoration: none;
             font-size: 0.95rem;
             transition: var(--transition);
         }
-        
+
         .footer-links a:hover {
-            color: white;
+            color: var(--primary);
         }
-        
+
         .footer-contact p {
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.6);
             margin-bottom: 18px;
             display: flex;
             align-items: flex-start;
@@ -517,15 +553,16 @@
         }
 
         .footer-contact i {
+            color: var(--primary);
             margin-top: 5px;
             font-size: 0.9rem;
         }
-        
+
         .social-icons {
             display: flex;
             gap: 16px;
         }
-        
+
         .social-icons a {
             display: inline-flex;
             align-items: center;
@@ -535,23 +572,25 @@
             background-color: rgba(255, 255, 255, 0.05);
             color: white;
             font-size: 1rem;
+            border: 1px solid rgba(230, 126, 34, 0.3);
             transition: var(--transition);
         }
-        
+
         .social-icons a:hover {
-            background-color: white;
-            color: var(--black);
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
             transform: translateY(-3px);
         }
-        
+
         .copyright {
             text-align: center;
             padding-top: 40px;
-            border-top: 1px solid var(--border);
-            color: rgba(255, 255, 255, 0.3);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.4);
             font-size: 0.85rem;
         }
-        
+
         /* Popup Styling */
         .popup-overlay {
             position: fixed;
@@ -559,7 +598,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(10, 10, 11, 0.7);
+            background: rgba(10, 10, 11, 0.8);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -584,7 +623,8 @@
             text-align: center;
             transform: scale(0.95);
             transition: var(--transition);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            border: 2px solid var(--primary);
+            box-shadow: 0 20px 50px rgba(230, 126, 34, 0.2);
         }
 
         .popup-overlay.show .popup-card {
@@ -601,11 +641,16 @@
             cursor: pointer;
             color: var(--black);
             line-height: 1;
+            transition: var(--transition);
+        }
+
+        .close-popup:hover {
+            color: var(--primary);
         }
 
         .gold-star {
             font-size: 1.5rem;
-            color: var(--black);
+            color: var(--primary);
             margin-bottom: 24px;
         }
 
@@ -615,7 +660,7 @@
         }
 
         .popup-content h3 {
-            color: var(--gray);
+            color: var(--primary-dark);
             margin-bottom: 24px;
             text-transform: uppercase;
             letter-spacing: 2px;
@@ -631,15 +676,33 @@
 
         /* Responsive styling */
         @media (max-width: 1024px) {
-            h1 { font-size: 3.8rem; }
-            h2 { font-size: 2.8rem; }
-            .hero h1 { font-size: 4.2rem; }
-            .footer-content { grid-template-columns: 1fr 1fr; gap: 40px; }
-            .footer-about { grid-column: span 2; }
+            h1 {
+                font-size: 3.8rem;
+            }
+
+            h2 {
+                font-size: 2.8rem;
+            }
+
+            .hero h1 {
+                font-size: 4.2rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+
+            .footer-about {
+                grid-column: span 2;
+            }
         }
-        
+
         @media (max-width: 768px) {
-            header { padding: 20px 0; }
+            header {
+                padding: 20px 0;
+            }
+
             .nav-links {
                 position: fixed;
                 top: 73px;
@@ -655,38 +718,95 @@
                 align-items: flex-start;
                 box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
             }
-            .nav-links.active { left: 0; }
-            .mobile-menu-btn { display: block; }
-            h1 { font-size: 3rem; }
-            h2 { font-size: 2.4rem; }
-            .hero h1 { font-size: 3.2rem; }
-            .hero p { font-size: 1.1rem; }
-            .countdown { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-            .countdown-item { min-width: auto; padding: 24px 16px; }
-            .countdown-number { font-size: 3rem; }
-            .cta-box { padding: 60px 24px; }
-            .footer-content { grid-template-columns: 1fr; }
-            .footer-about { grid-column: span 1; }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            h1 {
+                font-size: 3rem;
+            }
+
+            h2 {
+                font-size: 2.4rem;
+            }
+
+            .hero h1 {
+                font-size: 3.2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .countdown {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 16px;
+            }
+
+            .countdown-item {
+                min-width: auto;
+                padding: 24px 16px;
+            }
+
+            .countdown-number {
+                font-size: 3rem;
+            }
+
+            .cta-box {
+                padding: 60px 24px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-about {
+                grid-column: span 1;
+            }
         }
-        
+
         @media (max-width: 576px) {
-            .hero h1 { font-size: 2.6rem; }
-            h2 { font-size: 2rem; }
-            .btn { width: 100%; text-align: center; }
-            .hero-buttons { display: flex; flex-direction: column; gap: 16px; }
-            .hero-buttons .btn { margin-left: 0 !important; }
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            .hero-buttons .btn-outline {
+                margin-left: 0 !important;
+            }
         }
     </style>
 </head>
+
 <body>
     <header id="header">
         <div class="container nav-container">
             <a href="#" class="logo">P<span>F</span>N</a>
-            
+
             <button class="mobile-menu-btn" id="mobileMenuBtn">
                 <i class="fas fa-bars"></i>
             </button>
-            
+
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
@@ -699,16 +819,19 @@
 
     <section class="hero" id="home">
         <video autoplay muted loop class="hero-video">
-            <source src="https://player.vimeo.com/external/434960406.sd.mp4?s=94db289a62d0a7764c0e84cf9a76fd7a7db1dac5&profile_id=164&oauth2_token_id=57447761" type="video/mp4">
+            <source
+                src="https://player.vimeo.com/external/434960406.sd.mp4?s=94db289a62d0a7764c0e84cf9a76fd7a7db1dac5&profile_id=164&oauth2_token_id=57447761"
+                type="video/mp4">
         </video>
-        
+
         <div class="container">
             <div class="hero-content">
                 <h1>PRESTIGE FACE NIGERIA</h1>
-                <p>Discover Nigeria's next top model. Join the most prestigious modeling competition in West Africa. Winners receive international agency contracts, cash prizes, and magazine features.</p>
+                <p>Discover Nigeria's next top model. Join the most prestigious modeling competition in West Africa.
+                    Winners receive international agency contracts, cash prizes, and magazine features.</p>
                 <div class="hero-buttons">
                     <a href="#apply" class="btn btn-primary">Apply Now</a>
-                    <a href="#about" class="btn" style="margin-left: 20px; border-color: white; color: white;">Learn More</a>
+                    <a href="#about" class="btn btn-outline">Learn More</a>
                 </div>
             </div>
         </div>
@@ -720,24 +843,27 @@
                 <h2>The Competition</h2>
                 <p>More than a competition—a global career launchpad.</p>
             </div>
-            
+
             <div class="info-cards">
                 <div class="info-card">
                     <i class="fas fa-crown"></i>
                     <h3>Grand Prize</h3>
-                    <p>1,000,000 naira cash prize, international modeling contract with top agencies in London and New York, and a 6-page editorial feature in Vogue Nigeria.</p>
+                    <p>1,000,000 naira cash prize, international modeling contract with top agencies in London and New
+                        York, and a 6-page editorial feature in Vogue Nigeria.</p>
                 </div>
-                
+
                 <div class="info-card">
                     <i class="fas fa-globe-africa"></i>
                     <h3>National Exposure</h3>
-                    <p>Winner will be featured in a nationwide billboard campaign, becomes the ambassador with the brands partnering with PFN and appear on the cover of major fashion magazines across Africa.</p>
+                    <p>Winner will be featured in a nationwide billboard campaign, becomes the ambassador with the
+                        brands partnering with PFN and appear on the cover of major fashion magazines across Africa.</p>
                 </div>
-                
+
                 <div class="info-card">
                     <i class="fas fa-gem"></i>
                     <h3>Exclusive Training</h3>
-                    <p>1st and 2nd runner up receive cash prize professional training from industry experts in runway, posing, portfolio development, and brand building.</p>
+                    <p>1st and 2nd runner up receive cash prize professional training from industry experts in runway,
+                        posing, portfolio development, and brand building.</p>
                 </div>
             </div>
         </div>
@@ -747,40 +873,40 @@
         <div class="container">
             <h2>Application Deadline</h2>
             <p>Submit your application before the window closes</p>
-            
+
             <div class="countdown" id="countdownTimer">
                 <div class="countdown-item">
                     <div class="countdown-number" id="days">00</div>
                     <div class="countdown-label">Days</div>
                 </div>
-                
+
                 <div class="countdown-item">
                     <div class="countdown-number" id="hours">00</div>
                     <div class="countdown-label">Hours</div>
                 </div>
-                
+
                 <div class="countdown-item">
                     <div class="countdown-number" id="minutes">00</div>
                     <div class="countdown-label">Minutes</div>
                 </div>
-                
+
                 <div class="countdown-item">
                     <div class="countdown-number" id="seconds">00</div>
                     <div class="countdown-label">Seconds</div>
                 </div>
             </div>
-            
+
             <a href="#apply" class="btn">Apply Now</a>
         </div>
     </section>
 
-   <section class="judges-section" id="Sponsors">
+    <section class="judges-section" id="Sponsors">
         <div class="container">
             <div class="section-header">
                 <h2>Meet Our Sponsors</h2>
                 <p>Distinguished partners supporting Nigeria's next fashion icons</p>
             </div>
-            
+
             <div class="flyer-container">
                 <img src="SponsorsFlyer.png" alt="Prestige Face Nigeria 2026 Sponsors Flyer" class="sponsor-flyer">
             </div>
@@ -791,21 +917,24 @@
         <div class="container">
             <div class="cta-box">
                 <h2>The Spotlight Awaits You</h2>
-                <p>Join thousands of aspiring models competing for the title of Prestige Face Nigeria 2026. Applications are free and open to all Nigerian residents aged 16-28.</p>
-                
+                <p>Join thousands of aspiring models competing for the title of Prestige Face Nigeria 2026. Applications
+                    are free and open to all Nigerian residents aged 16-28.</p>
+
                 <div class="requirements">
                     <h3>Requirements</h3>
                     <ul>
-                        <li><i class="fas fa-minus"></i> Nigerian citizen or permanent resident</li>
-                        <li><i class="fas fa-minus"></i> Age 16-28 (as of December 31, 2026)</li>
-                        <li><i class="fas fa-minus"></i> Minimum height: 173cm (female) / 183cm (male)</li>
-                        <li><i class="fas fa-minus"></i> No current exclusive professional modeling contracts</li>
+                        <li><i class="fas fa-check"></i> Nigerian citizen or permanent resident</li>
+                        <li><i class="fas fa-check"></i> Age 16-28 (as of December 31, 2026)</li>
+                        <li><i class="fas fa-check"></i> Minimum height: 173cm (female) / 183cm (male)</li>
+                        <li><i class="fas fa-check"></i> No current exclusive professional modeling contracts</li>
                     </ul>
                 </div>
-                
+
                 <a href="modeling web/signup.html" class="btn btn-primary">Start Application</a>
-                <p style="margin-top: 28px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gray);">
-                    Application closes in <span id="countdown-text" style="color: var(--black); font-weight: 600;">30 days</span>
+                <p
+                    style="margin-top: 28px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--gray);">
+                    Application closes in <span id="countdown-text"
+                        style="color: var(--primary-dark); font-weight: 600;">30 days</span>
                 </p>
             </div>
         </div>
@@ -816,16 +945,18 @@
             <div class="footer-content">
                 <div class="footer-about">
                     <div class="footer-logo">P<span>F</span>N</div>
-                    <p>Prestige Face Nigeria is the nation's premier modeling competition, dedicated to discovering and nurturing the next generation of global runway talent.</p>
+                    <p>Prestige Face Nigeria is the nation's premier modeling competition, dedicated to discovering and
+                        nurturing the next generation of global runway talent.</p>
                     <div class="social-icons">
-                        <a href="https://www.instagram.com/prestigefaceng?igsh=MWJmajRianQxbjFodw==" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/prestigefaceng?igsh=MWJmajRianQxbjFodw==" target="_blank"><i
+                                class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-tiktok"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                
+
                 <div class="footer-links">
                     <h4>Quick Links</h4>
                     <ul>
@@ -837,7 +968,7 @@
                         <li><a href="#">Privacy Policy</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-contact">
                     <h4>Contact Us</h4>
                     <p><i class="fas fa-map-marker-alt"></i> 24A, Ozumba Mbadiwe, Victoria Island, Lagos</p>
@@ -845,7 +976,7 @@
                     <p><i class="fas fa-envelope"></i> prestigefaceng@gmail.com</p>
                 </div>
             </div>
-            
+
             <div class="copyright">
                 <p>&copy; 2026 Prestige Face Nigeria. All rights reserved.</p>
             </div>
@@ -859,7 +990,8 @@
                 <i class="fas fa-star gold-star"></i>
                 <h2>PFN 2026</h2>
                 <h3>The Stage is Set</h3>
-                <p>Registration for the 2026 Season is now officially open. Do you have the look, the walk, and the presence?</p>
+                <p>Registration for the 2026 Season is now officially open. Do you have the look, the walk, and the
+                    presence?</p>
                 <a href="#apply" class="btn btn-primary" id="popupApplyBtn">Apply Now</a>
             </div>
         </div>
@@ -869,14 +1001,14 @@
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const navLinks = document.getElementById('navLinks');
-        
+
         mobileMenuBtn.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
-                ? '<i class="fas fa-times"></i>' 
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
                 : '<i class="fas fa-bars"></i>';
         });
-        
+
         // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
@@ -884,7 +1016,7 @@
                 mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             });
         });
-        
+
         // Header scroll effect
         window.addEventListener('scroll', () => {
             const header = document.getElementById('header');
@@ -894,73 +1026,50 @@
                 header.classList.remove('scrolled');
             }
         });
-        
+
         // Countdown Timer
         function updateCountdown() {
-            const deadline = new Date('September 8, 2026 23:59:59').getTime();
+            const deadline = new Date('June 17, 2026 23:59:59').getTime();
             const now = new Date().getTime();
             const timeLeft = deadline - now;
-            
-            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-            
-            const displayDays = days < 0 ? 0 : days;
-            const displayHours = hours < 0 ? 0 : hours;
-            const displayMinutes = minutes < 0 ? 0 : minutes;
-            const displaySeconds = seconds < 0 ? 0 : seconds;
 
-            document.getElementById('days').textContent = displayDays.toString().padStart(2, '0');
-            document.getElementById('hours').textContent = displayHours.toString().padStart(2, '0');
-            document.getElementById('minutes').textContent = displayMinutes.toString().padStart(2, '0');
-            document.getElementById('seconds').textContent = displaySeconds.toString().padStart(2, '0');
-            
-            document.getElementById('countdown-text').textContent = `${displayDays} days, ${displayHours} hours`;
+            if (timeLeft > 0) {
+                const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                document.getElementById('days').innerText = String(days).padStart(2, '0');
+                document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+                document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+                document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+            } else {
+                document.getElementById('countdownTimer').innerHTML = "<h3>Application Closed</h3>";
+            }
         }
-        
+
         setInterval(updateCountdown, 1000);
         updateCountdown();
-        
-        // Popup Logic
-        document.addEventListener('DOMContentLoaded', () => {
-            const popup = document.getElementById('entryPopup');
-            const closeBtn = document.getElementById('closePopup');
-            const popupApplyBtn = document.getElementById('popupApplyBtn');
 
-            popup.classList.add('show');
+        // Popup logic
+        const entryPopup = document.getElementById('entryPopup');
+        const closePopup = document.getElementById('closePopup');
+        const popupApplyBtn = document.getElementById('popupApplyBtn');
 
-            closeBtn.addEventListener('click', () => {
-                popup.classList.remove('show');
-            });
-
-            popupApplyBtn.addEventListener('click', () => {
-                popup.classList.remove('show');
-            });
-
-            window.addEventListener('click', (e) => {
-                if (e.target === popup) {
-                    popup.classList.remove('show');
-                }
-            });
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                entryPopup.classList.add('show');
+            }, 1000);
         });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    e.preventDefault();
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 70,
-                        behavior: 'smooth'
-                    });
-                }
-            });
+
+        closePopup.addEventListener('click', () => {
+            entryPopup.classList.remove('show');
+        });
+
+        popupApplyBtn.addEventListener('click', () => {
+            entryPopup.classList.remove('show');
         });
     </script>
 </body>
+
 </html>
